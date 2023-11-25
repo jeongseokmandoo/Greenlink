@@ -7,7 +7,7 @@ import MainNav from "../componenets/MainNav";
 import "./Setting.css";
 import ProfileImage from "../componenets/ProfileImage";
 
-function NotifiHomeDiv({ min = "3분전", context = "알림 내용" }) {
+function NotifiHome({ min = "3분전", context = "알림 내용" }) {
   return (
     <div className="NotifiHomeDiv">
       <div>{min}</div>
@@ -33,8 +33,8 @@ function PlantPage1(props) {
         icon1={on_bell_icon}
         icon2={setting_icon}
       />
-      <NotifiHomeDiv />
-      <NotifiHomeDiv />
+      <NotifiHome />
+      <NotifiHome />
       <ProfileImage />
       <Btn2 text="사용 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />

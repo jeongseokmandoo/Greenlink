@@ -15,7 +15,6 @@ function NotificationPage(props) {
         icon1={setting_icon}
         icon2={x_icon}
       />
-
       <MainNav />
     </div>
   );

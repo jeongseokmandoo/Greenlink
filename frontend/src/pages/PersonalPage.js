@@ -5,7 +5,7 @@ import x_icon from "../assets/X_Icon.png";
 import MainNav from "../componenets/MainNav";
 import "./Setting.css";
 
-const ChangePasswordButton = ({ className = "" }) => {
+const ChangePwBtn = ({ className = "" }) => {
   const handleClick = () => {
     // 비밀번호 변경 로직을 여기에 작성하시면 됩니다.
   };
@@ -17,7 +17,7 @@ const ChangePasswordButton = ({ className = "" }) => {
   );
 };
 
-const LogoutButton = ({ className = "" }) => {
+const LogoutBtn = ({ className = "" }) => {
   const handleClick = () => {
     // 로그아웃 로직을 여기에 작성하시면 됩니다.
   };
@@ -29,7 +29,7 @@ const LogoutButton = ({ className = "" }) => {
   );
 };
 
-const DeleteAccountButton = ({ className = "" }) => {
+const DelAccountBtn = ({ className = "" }) => {
   const handleClick = () => {
     // 계정 탈퇴 로직을 여기에 작성하시면 됩니다.
   };
@@ -54,9 +54,9 @@ function PersonalPage(props) {
         icon2={x_icon}
       />
       <div className="contents">
-        <ChangePasswordButton className="clickbox" />
-        <LogoutButton className="clickbox" />
-        <DeleteAccountButton className="clickbox" />
+        <ChangePwBtn className="clickbox" />
+        <LogoutBtn className="clickbox" />
+        <DelAccountBtn className="clickbox" />
       </div>
       <MainNav />
     </div>

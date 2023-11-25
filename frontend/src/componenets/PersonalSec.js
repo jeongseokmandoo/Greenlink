@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const PersonalSecurity = ({ className = "" }) => {
+const PersonalSec = ({ className = "" }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -15,4 +15,4 @@ const PersonalSecurity = ({ className = "" }) => {
   );
 };
 
-export default PersonalSecurity;
+export default PersonalSec;

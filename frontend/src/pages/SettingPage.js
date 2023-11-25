@@ -3,7 +3,7 @@ import TopNav from "../componenets/TopNav";
 import no_icon from "../assets/non_icon.png";
 import MainNav from "../componenets/MainNav";
 import x_icon from "../assets/X_Icon.png";
-import PersonalSecurity from "../componenets/PersonalSecurity";
+import PersonalSec from "../componenets/PersonalSec";
 import NotifiBar from "../componenets/NotifiBar";
 import ChangePot from "../componenets/ChangePot";
 import "./Setting.css";
@@ -22,7 +22,7 @@ function SettingPage(props) {
       />
 
       <div className="contents">
-        <PersonalSecurity className="clickbox" />
+        <PersonalSec className="clickbox" />
         <NotifiBar className="clickbox" />
         <ChangePot className="clickbox" />
       </div>
