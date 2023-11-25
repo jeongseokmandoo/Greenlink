@@ -9,8 +9,8 @@ const icontest_style = {
 
 function TopNav({ text, link1, link2, icon1, icon2 }) {
   return (
-    <div className={styles.top_nav}>
-      <h3>{text}</h3>
+    <div className={styles.topNav}>
+      <h3 className={styles.h3}>{text}</h3>
       <Link to={link1}>
         <img src={icon1} alt="icon1" style={icontest_style} />
       </Link>

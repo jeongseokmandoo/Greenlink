@@ -1,7 +1,7 @@
 import React from "react";
 import Btn from "../componenets/Btn";
-import Page1_6Nav from "../componenets/Page1_6Nav";
-import { Input3 } from "../componenets/Page1_6Input";
+import AccountNav from "../componenets/AccountNav";
+import { Input3 } from "../componenets/AccountInput";
 import { useState, useRef } from "react";
 import styles from "./Page3.module.css";
 import defaultImage from "../assets/default_image.png";
@@ -30,7 +30,7 @@ function Page3(props) {
   return (
     <div>
       <h1>page3</h1>
-      <Page1_6Nav text1="계정만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
       <label htmlFor="file-input">
         {File ? (
           <img src={File} alt="uploaded file" className={styles.img} />
