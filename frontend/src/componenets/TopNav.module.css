@@ -1,3 +1,15 @@
-.TopNav {
+.topNav {
+  position: fixed;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 5vh;
+  width: 100vw;
+}
+
+.topNav h3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

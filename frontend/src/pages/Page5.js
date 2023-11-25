@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Page1_6Nav from "../componenets/Page1_6Nav";
-import { Input2 } from "../componenets/Page1_6Input";
+import AccountNav from "../componenets/AccountNav";
+import { Input2 } from "../componenets/AccountInput";
 import { useState } from "react";
 import BigBtn from "../componenets/BigBtn";
 
@@ -14,7 +14,7 @@ function Page5(props) {
   return (
     <div>
       <h1>page5</h1>
-      <Page1_6Nav text1="로그인" text2="가입하기" link1="/2" />
+      <AccountNav text1="로그인" text2="가입하기" link1="/2" />
       <Input2
         type="text"
         value={phoneNumber}

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "./Page1_6Nav.module.css";
+import styles from "./AccountNav.module.css";
 
-function Page1_6Nav({ text1, text2, link1 }) {
+function AccountNav({ text1, text2, link1 }) {
   return (
     <div className={styles.nav}>
       <Link to="/">X </Link>
@@ -11,4 +11,4 @@ function Page1_6Nav({ text1, text2, link1 }) {
   );
 }
 
-export default Page1_6Nav;
+export default AccountNav;

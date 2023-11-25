@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BigBtn from "../componenets/BigBtn";
-import Page1_6Nav from "../componenets/Page1_6Nav";
-import { Input2 } from "../componenets/Page1_6Input";
+import AccountNav from "../componenets/AccountNav";
+import { Input2 } from "../componenets/AccountInput";
 
 function Page4(props) {
   const [plantnumber, setPlantnumber] = useState("");
@@ -10,7 +10,7 @@ function Page4(props) {
   return (
     <div>
       <h1>page4</h1>
-      <Page1_6Nav text1="계정만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
       <h1>화분 하단의 번호를 입력해주세요.</h1>
       <Input2
         type="text"
