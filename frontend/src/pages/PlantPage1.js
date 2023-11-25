@@ -10,14 +10,14 @@ import HumidiBar from "../componenets/HumiBar";
 
 function NotifiHome({ min = "3분전", context = "알림 내용" }) {
   return (
-    <div className="NotifiHomeDiv">
+    <div className="NotifiHome">
       <div>{min}</div>
       <NotifiText context={context} />
     </div>
   );
 }
 
-function NotifiText({ context = "알림 내용 들어감요" }) {
+export function NotifiText({ context = "알림 내용 들어감요" }) {
   return <div className="NotifiText">{context}</div>;
 }
 
