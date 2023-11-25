@@ -1,8 +1,8 @@
 import React from "react";
-import Page1_6Nav from "../componenets/Page1_6Nav";
-import { Input1, Input2 } from "../componenets/Page1_6Input";
-import { useState, useRef } from "react";
-import Page1_6_Btn from "../componenets/Page1_6_Btn";
+import AccountNav from "../componenets/AccountNav";
+import { Input1, Input2 } from "../componenets/AccountInput";
+import { useState } from "react";
+import BlueBtn from "../componenets/BlueBtn";
 import BigBtn from "../componenets/BigBtn";
 
 function Page6(props) {
@@ -18,21 +18,21 @@ function Page6(props) {
   return (
     <div>
       <h1>page6</h1>
-      <Page1_6Nav text1="비밀번호 재설정" text2=" " link1="/" />
+      <AccountNav text1="비밀번호 재설정" text2=" " link1="/" />
       <Input1
         type="text"
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
         placeholder="전화번호"
       />
-      <Page1_6_Btn onClick={button1} text="전화번호 발송" />
+      <BlueBtn onClick={button1} text="전화번호 발송" />
       <Input1
         type="text"
         value={vertificationCode}
         onChange={(e) => setvertificationCode(e.target.value)}
         placeholder="인증번호"
       />
-      <Page1_6_Btn onClick={button2} text="인증하기" />
+      <BlueBtn onClick={button2} text="인증하기" />
       <Input2
         type="password"
         value={password}
