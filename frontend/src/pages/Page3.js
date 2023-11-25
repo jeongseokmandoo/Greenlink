@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import styles from "./Page3.module.css";
 import defaultImage from "../assets/default_image.png";
 
-function Page3(props) {
+function Page3() {
   const [File, setFile] = useState(null);
 
   const button3 = (event) => {
