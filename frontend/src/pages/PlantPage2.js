@@ -29,8 +29,8 @@ function PlantPage2(props) {
       <UpdateBox
         title="가족이 된 날"
         type="Date"
-        value={plantSort}
-        onChange={(e) => setPlantSort(e.target.value)}
+        value={plantDate}
+        onChange={(e) => setPlantDate(e.target.value)}
         placeholder="가족이 된 날"
       />
       <UpdateBox

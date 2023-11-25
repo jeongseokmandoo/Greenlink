@@ -6,6 +6,7 @@ import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../componenets/MainNav";
 import "./Setting.css";
 import PlantImage from "../componenets/PlantImage";
+import HumidiBar from "../componenets/HumiBar";
 
 function NotifiHome({ min = "3분전", context = "알림 내용" }) {
   return (
@@ -35,7 +36,11 @@ function PlantPage1(props) {
       />
       <NotifiHome />
       <NotifiHome />
-      <PlantImage />
+      <div>
+        <PlantImage />
+        <p>퉁퉁이 Lv. 3</p>
+      </div>
+      <HumidiBar humidity={80} />
       <Btn2 text="사용 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />
     </div>
