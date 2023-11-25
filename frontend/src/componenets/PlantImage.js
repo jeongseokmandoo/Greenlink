@@ -1,8 +1,8 @@
 // ProfileImage.js
 import React from "react";
 import { useLocation } from "react-router-dom";
-import on_bell_icon from "../assets/on_Bell_Icon.png";
 import "./PlantImage.css";
+import rabit1 from "../assets/rabit1.png";
 
 const style_home = {
   width: "50vw",
@@ -24,7 +24,7 @@ function PlantImage() {
 
   return (
     <div style={style} className="plantImage">
-      <img src={on_bell_icon} alt="Profile" />
+      <img src={rabit1} alt="Profile" />
     </div>
   );
 }
