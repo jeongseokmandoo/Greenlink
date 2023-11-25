@@ -14,13 +14,19 @@ function MainNav(props) {
   return (
     <div className={styles.mainnav}>
       <Link to="/gallery1">
-        <img src={gallery_icon} alt="icon1" style={icontest_style} />
+        <div style={icontest_style}>
+          <img src={gallery_icon} alt="icon1" />
+        </div>
       </Link>
       <Link to="/plant1">
-        <img src={home_icon} alt="icon2" style={icontest_style} />
+        <div style={icontest_style}>
+          <img src={home_icon} alt="icon2" />
+        </div>
       </Link>
       <Link to="/group1">
-        <img src={user_icon} alt="icon3" style={icontest_style} />
+        <div style={icontest_style}>
+          <img src={user_icon} alt="icon3" />
+        </div>
       </Link>
     </div>
   );

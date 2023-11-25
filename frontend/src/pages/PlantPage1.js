@@ -24,8 +24,6 @@ export function NotifiText({ context = "알림 내용 들어감요" }) {
 function PlantPage1(props) {
   return (
     <div className="Main">
-      <h1>🌱 통통이와 함께한지 100일 차</h1>
-
       <TopNav
         className="topNav"
         text={undefined}
@@ -34,6 +32,7 @@ function PlantPage1(props) {
         icon1={on_bell_icon}
         icon2={setting_icon}
       />
+      <h1>🌱 통통이와 함께한지 100일 차</h1>
       <NotifiHome />
       <NotifiHome />
       <div>

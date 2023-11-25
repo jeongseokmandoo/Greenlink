@@ -9,7 +9,6 @@ import items from "../mock2.json";
 function NotificationPage() {
   return (
     <div>
-      <h1>notification</h1>
       <TopNav
         text="알림"
         link1="/setting"
