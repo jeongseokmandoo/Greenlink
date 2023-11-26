@@ -1,25 +1,20 @@
-from django.shortcuts import render
-from rest_framework import generics
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
-from .models import FlowerPot, UserProfile
-from .serializers import FlowerPotSerializer, UserProfileSerializer, SignupSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import SignUpSerializer
 
-class FlowerPotListCreateView(generics.ListCreateAPIView):
-    queryset = FlowerPot.objects.all()
-    serializer_class = FlowerPotSerializer
-
-class UserProfileListCreateView(generics.ListCreateAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
-
-
-class SignupView(APIView):
+class SignUpView(APIView):
     def post(self, request, *args, **kwargs):
-        serializer = SignupSerializer(data=request.data)
+        serializer = SignUpSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user = serializer.save() # 자동으로 serializers.py에서 create 실행
+            response_data = {
+                'message': 'User created successfully', # message 가 있으면 서버와의 소통 용이 
+                'user_id': user.id,    # phone number
+                'username': user.username,
+                'korean_name': user.korean_name,
+                # Include other fields as needed
+            }
+            return Response(response_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+    

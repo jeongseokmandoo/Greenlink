@@ -1,7 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
-from bsk_app.models import UserProfile
+from django.contrib.auth import get_user_model
+
 
 
 
@@ -18,33 +19,39 @@ class FlowerPot(models.Model):
     def __str__(self):
         return f"{self.plant_name} - Pot Number {self.pot_number}"
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
+
+class ProfileImage(models.Model):
+    image = models.ImageField(upload_to='profile_images/')
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.description
+
+class UserProfile(AbstractUser):
     korean_name = models.CharField(max_length=30, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
-    flower_pot = models.ForeignKey(FlowerPot, on_delete=models.SET_NULL, null=True, blank=True)
+    profile_picture = models.ForeignKey(ProfileImage, on_delete=models.SET_NULL, null=True, blank=True)
+    flower_pot = models.ForeignKey('FlowerPot', on_delete=models.SET_NULL, null=True, blank=True)
     notifications_enabled = models.BooleanField(default=True)
     nickname = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.username
     
 
+
+UserProfile = get_user_model() # 직접 class로 부르는 것보다 보안 상 더 좋다! django 에서 권장함
+
 class Notification(models.Model):
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    isread = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
     path = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.user_profile.user.username} - {self.message}"
-
-    
+        return f"{self.user.username} - {self.message}"
 
 
-    
-
-# app_label 추가
-# UserProfile._meta.app_label = 'bsk_app' # 여러 앱 있을 때 필요
 
