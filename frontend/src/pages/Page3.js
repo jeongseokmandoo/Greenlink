@@ -1,58 +1,61 @@
-import React from "react";
-import Btn from "../componenets/Btn";
-import AccountNav from "../componenets/AccountNav";
-import { Input3 } from "../componenets/AccountInput";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
+import AccountNav from "../components/AccountNav";
 import styles from "./Page3.module.css";
-import defaultImage from "../assets/default_image.png";
+import Avatar1 from "../assets/avatar/avatar1.png";
+import AvatarList from "../components/AvatarList";
+import SignupBtn from "../components/SignupBtn";
+import { useNavigate } from "react-router-dom";
 
 function Page3() {
-  const [File, setFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [fileListstyle, setFileListstyle] = useState(false);
+  const navigate = useNavigate();
 
-  const button3 = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      setFile(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const ImageInput = useRef();
-
-  const OnClickImageUpload = () => {
-    if (ImageInput.current) {
-      console.log("Clicking Input");
-      ImageInput.current.click();
+  const storelocalP3 = () => {
+    if (previewImage == null) {
+      alert("프로필을 선택해주세요.");
+    } else {
+      localStorage.setItem("Profile_picture", previewImage);
+      navigate("/4");
     }
   };
 
+  const handleAvatarList = () => {
+    setFileListstyle(!fileListstyle);
+  };
+
+  const handleImageItemClick = (item) => {
+    setPreviewImage(item.target.src);
+  };
+
+  const imageInputRef = useRef();
+
   return (
     <div>
-      <h1>page3</h1>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
       <label htmlFor="file-input">
-        {File ? (
-          <img src={File} alt="uploaded file" className={styles.img} />
+        {previewImage ? (
+          <div>
+            <img
+              src={previewImage}
+              alt="uploaded file"
+              className={styles.img}
+              onClick={handleAvatarList}
+            />
+          </div>
         ) : (
           <div>
             <img
-              src={defaultImage}
+              src={Avatar1}
               className={styles.img}
-              onClick={OnClickImageUpload}
+              onClick={handleAvatarList}
             />
           </div>
         )}
       </label>
-      <Input3
-        id="file-input"
-        type="file"
-        accept="image/"
-        onChange={button3}
-        ref={ImageInput}
-      />
       <p>내 이미지를 등록하세요!</p>
-      <Btn text="가입하기" link="/4" />
+      {fileListstyle && <AvatarList onClick={handleImageItemClick} />}
+      <SignupBtn text="가입하기" onClick={storelocalP3} />
     </div>
   );
 }

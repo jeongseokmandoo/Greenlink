@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import MainNav from "../componenets/MainNav";
-import UpdateBox from "../componenets/UpdateBox";
+import MainNav from "../components/MainNav";
+import UpdateBox from "../components/UpdateBox";
 import { Link } from "react-router-dom";
-import BigBtn from "../componenets/BigBtn";
-import { ProfileImg } from "../componenets/ProfileImg";
+import BigBtn from "../components/BigBtn";
+import { ProfileImg } from "../components/ProfileImg";
 import Profileimg from "../assets/on_Bell_Icon.png";
 
 function GroupPage2(props) {

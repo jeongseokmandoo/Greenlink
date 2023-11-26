@@ -1,5 +1,5 @@
 import React from "react";
-import MainNav from "../componenets/MainNav";
+import MainNav from "../components/MainNav";
 
 function Page7(props) {
   return (

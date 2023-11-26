@@ -1,11 +1,11 @@
 import React from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
-import MainNav from "../componenets/MainNav";
+import MainNav from "../components/MainNav";
 import x_icon from "../assets/X_Icon.png";
-import PersonalSec from "../componenets/PersonalSec";
-import NotifiBar from "../componenets/NotifiBar";
-import ChangePot from "../componenets/ChangePot";
+import PersonalSec from "../components/PersonalSec";
+import NotifiBar from "../components/NotifiBar";
+import ChangePot from "../components/ChangePot";
 import "./Setting.css";
 
 function SettingPage(props) {

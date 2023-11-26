@@ -1,8 +1,8 @@
 import React from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
-import MainNav from "../componenets/MainNav";
+import MainNav from "../components/MainNav";
 
 function NotificationPage(props) {
   return (

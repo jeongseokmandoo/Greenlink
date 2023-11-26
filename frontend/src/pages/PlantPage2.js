@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
-import UpdateBox from "../componenets/UpdateBox";
-import PlantImage from "../componenets/PlantImage";
+import UpdateBox from "../components/UpdateBox";
+import PlantImage from "../components/PlantImage";
 import { Link } from "react-router-dom";
-import BigBtn from "../componenets/BigBtn";
+import BigBtn from "../components/BigBtn";
 
 function PlantPage2(props) {
   const [plantName, setPlantName] = useState("");

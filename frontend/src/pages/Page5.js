@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AccountNav from "../componenets/AccountNav";
-import { Input2 } from "../componenets/AccountInput";
+import AccountNav from "../components/AccountNav";
+import { Input2 } from "../components/AccountInput";
 import { useState } from "react";
-import BigBtn from "../componenets/BigBtn";
+import BigBtn from "../components/BigBtn";
 
 function Page5(props) {
   const [phoneNumber, setPhoneNumber] = useState("");

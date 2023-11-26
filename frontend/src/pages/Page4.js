@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import BigBtn from "../componenets/BigBtn";
-import AccountNav from "../componenets/AccountNav";
-import { Input2 } from "../componenets/AccountInput";
+import BigBtn from "../components/BigBtn";
+import AccountNav from "../components/AccountNav";
+import { Input2 } from "../components/AccountInput";
 
 function Page4(props) {
   const [plantnumber, setPlantnumber] = useState("");
