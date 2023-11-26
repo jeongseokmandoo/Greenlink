@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from django.contrib.auth import get_user_model
-from .models import FlowerPot, ProfileImage
+from django.contrib.auth import get_user_model, authenticate
+from .models import FlowerPot, ProfileImage, Notification
+from rest_framework.authtoken.models import Token
+
 
 
 UserProfile = get_user_model()
@@ -14,6 +16,13 @@ class ProfileImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileImage
         fields = '__all__'
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = '__all__'
+
+
 
 class UserProfileSerializer(serializers.ModelSerializer):
     profile_picture = ProfileImageSerializer(required=False)
@@ -38,3 +47,23 @@ class SignUpSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+# class LoginSerializer(serializers.Serializer):
+#     username = serializers.CharField()
+#     password = serializers.CharField(write_only=True)
+
+#     def validate(self, data):
+#         username = data.get('username')
+#         password = data.get('password')
+
+#         if username and password:
+#             user = authenticate(username=username, password=password)
+
+#             if user:
+#                 data['user'] = user
+#             else:
+#                 raise serializers.ValidationError('Unable to log in with provided credentials.')
+#         else:
+#             raise serializers.ValidationError('Must include "username" and "password".')
+
+#         return data
