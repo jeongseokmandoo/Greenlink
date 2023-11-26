@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Btn2 from "../componenets/Btn2";
 import TopNav from "../componenets/TopNav";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
@@ -21,7 +21,24 @@ export function NotifiText({ context = "알림 내용 들어감요" }) {
   return <div className="NotifiText">{context}</div>;
 }
 
-function PlantPage1(props) {
+function PlantPage1({ userId }) {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    fetch("data/user.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const user = data.find((user) => user.id === userId);
+        console.log(user);
+        setUserData(user);
+      })
+      .catch((error) => console.error(error));
+  }, [userId]);
+
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="Main">
       <TopNav
@@ -32,14 +49,16 @@ function PlantPage1(props) {
         icon1={on_bell_icon}
         icon2={setting_icon}
       />
-      <h1>🌱 통통이와 함께한지 100일 차</h1>
+      <h1>
+        🌱 {userData.korean_name}와 함께한지 {userData.start_date}일 차
+      </h1>
       <NotifiHome />
       <NotifiHome />
       <div>
         <PlantImage />
-        <p>퉁퉁이 Lv. 3</p>
+        <p>{userData.nickname} Lv. 3</p>
       </div>
-      <HumidiBar humidity={80} />
+      <HumidiBar humidity={userData.moisture_level} />
       <Btn2 text="사용 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />
     </div>

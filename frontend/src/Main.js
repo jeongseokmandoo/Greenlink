@@ -9,7 +9,7 @@ import Page7 from "./pages/Page7";
 import GalleryPage1 from "./pages/GalleryPage1";
 import GroupPage1 from "./pages/GroupPage1";
 import PlantPage1 from "./pages/PlantPage1";
-import NotificationPage from "./pages/NotificationPage";
+import NotifiPage from "./pages/NotifiPage";
 import SettingPage from "./pages/SettingPage";
 import PersonalPage from "./pages/PersonalPage";
 import PlantPage2 from "./pages/PlantPage2";
@@ -29,11 +29,11 @@ function Main() {
         <Route path="/7" element={<Page7 />} />
         <Route path="/gallery1" element={<GalleryPage1 />} />
         <Route path="/gallery2" element={<GalleryPage2 />} />
-        <Route path="/plant1" element={<PlantPage1 />} />
+        <Route path="/plant1" element={<PlantPage1 userId={1} />} />
         <Route path="/plant2" element={<PlantPage2 />} />
         <Route path="/group1" element={<GroupPage1 />} />
         <Route path="/group2" element={<GroupPage2 />} />
-        <Route path="/notification" element={<NotificationPage />} />
+        <Route path="/notification" element={<NotifiPage />} />
         <Route path="/setting" element={<SettingPage />} />
         <Route path="/personal" element={<PersonalPage />} />
       </Routes>
