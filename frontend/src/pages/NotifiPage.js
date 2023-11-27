@@ -3,16 +3,40 @@ import TopNav from "../componenets/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
 import MainNav from "../componenets/MainNav";
-import { NotifiText } from "./PlantPage1";
 import styles from "./NotifiPage.module.css";
 
+export function NotifiText({ message = "알림 내용 들어감요" }) {
+  return <div className="NotifiText">{message}</div>;
+}
+
 function NotifiBox({ item }) {
+  function calculateTime(created_at) {
+    const now = new Date();
+    const createdTime = new Date(created_at);
+    const diffInSeconds = Math.floor((now - createdTime) / 1000);
+
+    if (diffInSeconds < 0) {
+      alert("알림 오류: 미래의 알림입니다.");
+      throw new Error("알림 오류: 미래의 알림입니다.");
+    } else if (diffInSeconds < 60) {
+      return "지금";
+    } else if (diffInSeconds < 3600) {
+      return `${Math.floor(diffInSeconds / 60)}분 전`;
+    } else if (diffInSeconds < 86400) {
+      return `${Math.floor(diffInSeconds / 3600)}시간 전`;
+    } else if (diffInSeconds < 2592000) {
+      return `${Math.floor(diffInSeconds / 86400)}일 전`;
+    } else {
+      return `${Math.floor(diffInSeconds / 2592000)}달 전`;
+    }
+  }
+
   return (
     <div className={styles.notifibox} key={item.id}>
       <div className={styles.noti}></div>
       <div className={styles.content}>
-        <div>{item.min}</div>
-        <NotifiText context={item.context} />
+        <div>{calculateTime(item.created_at)}</div>
+        <NotifiText message={item.message} />
       </div>
     </div>
   );
@@ -32,7 +56,7 @@ function NotifiPage() {
   const [items, setItems] = useState([]); // 초기값을 빈 배열로 설정
 
   useEffect(() => {
-    fetch("data/mock2.json")
+    fetch("data/notifi.json")
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error(error));

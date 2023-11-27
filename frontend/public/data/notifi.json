@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": 1,
+    "message": "당신의 식물이 물을 필요로 합니다.",
+    "created_at": "2023-11-23T16:27:25Z",
+    "is_read": false,
+    "path": "/plants/1"
+  },
+  {
+    "id": 2,
+    "user": 1,
+    "message": "새로운 식물을 등록하였습니다.",
+    "created_at": "2023-08-27T16:27:25Z",
+    "is_read": true,
+    "path": "/plants/2"
+  },
+  {
+    "id": 3,
+    "user": 1,
+    "message": "새로운 동물을 등록하였습니다.",
+    "created_at": "2023-09-27T16:27:25Z",
+    "is_read": true,
+    "path": "/plants/2"
+  }
+]
