@@ -162,9 +162,6 @@ class NotificationView(APIView):
     def get(self, request):
         user = request.user
 
-
-
-
         flower_pot = user.flower_pot
         notificatiions = user.notifications
 
@@ -179,8 +176,3 @@ class NotificationView(APIView):
         return Response({'message': "complete", 'content': content}, status=status.HTTP_200_OK)
 
 
-
-
-    
-
-#1 
