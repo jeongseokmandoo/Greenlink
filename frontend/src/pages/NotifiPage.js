@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
-import MainNav from "../componenets/MainNav";
+import MainNav from "../components/MainNav";
 import styles from "./NotifiPage.module.css";
 
 export function NotifiText({ message = "알림 내용 들어감요" }) {

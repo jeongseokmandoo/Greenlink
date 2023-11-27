@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Btn2 from "../componenets/Btn2";
-import TopNav from "../componenets/TopNav";
+import Btn2 from "../components/Btn2";
+import TopNav from "../components/TopNav";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
-import MainNav from "../componenets/MainNav";
+import MainNav from "../components/MainNav.js";
 import "./Setting.css";
-import PlantImage from "../componenets/PlantImage";
-import HumidiBar from "../componenets/HumiBar";
-import { NotifiText } from "./NotifiPage";
+import PlantImage from "../components/PlantImage";
+import HumidiBar from "../components/HumiBar";
+import { NotifiText } from "./NotifiPage.js";
 
 function NotifiHomeBox({ item }) {
   function calculateTime(created_at) {
@@ -123,6 +123,7 @@ function PlantPage1() {
   // }, [potNumber]);
 
   const calculateDays = (startDate) => {
+    console.log(startDate);
     const start = new Date(startDate);
     const now = new Date(); // 현재 날짜와 시간
     const diffTime = Math.abs(now - start);
@@ -142,7 +143,7 @@ function PlantPage1() {
         icon2={setting_icon}
       />
       <h1>
-        🌱 {user.korean_name}와 함께한지 {calculateDays(user.start_date)}일 차
+        🌱 {user.korean_name}와 함께한지 {calculateDays(pot.start_date)}일 차
       </h1>
       <NotifiHomeList />
       <div>
