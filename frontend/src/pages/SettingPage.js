@@ -3,15 +3,20 @@ import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
 import x_icon from "../assets/X_Icon.png";
-import PersonalSec from "../components/PersonalSec";
 import NotifiBar from "../components/NotifiBar";
 import ChangePot from "../components/ChangePot";
 import "./Setting.css";
+import { useNavigate } from "react-router-dom";
+import PersonalsetBtn from "../components/PersonalsetBtn";
 
 function SettingPage(props) {
+  const navigate = useNavigate("/personal");
+  const personallock = () => {
+    navigate("/personal");
+  };
+
   return (
     <div className="main">
-      <h1>SettingPage</h1>
       <TopNav
         className="topNav"
         text="설정"
@@ -22,7 +27,7 @@ function SettingPage(props) {
       />
 
       <div className="contents">
-        <PersonalSec className="clickbox" />
+        <PersonalsetBtn text="개인/보안" onClick={personallock} />
         <NotifiBar className="clickbox" />
         <ChangePot className="clickbox" />
       </div>

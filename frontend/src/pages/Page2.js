@@ -12,11 +12,12 @@ function Page2(props) {
   const navigate = useNavigate();
 
   const storelocalP2 = () => {
+    // input 양식 틀릴 경우
     if (!korean_name || !phoneNumber || !password || !passwordConfirm) {
       alert("모든 값을 입력해주세요.");
     } else if (phoneNumber.length !== 11 || !phoneNumber.startsWith("010")) {
       alert("전화번호를 올바른 형식으로 입력해주세요.");
-    } else if (password.length < 8 || password.length > 13) {
+    } else if (password.length < 8 || password.length > 12) {
       alert("비밀번호는 8자 이상, 12자 이하여야 합니다.");
     } else if (
       !/[!@#$%^&*(),.?":{}|<>]/.test(password) ||
@@ -27,7 +28,8 @@ function Page2(props) {
       );
     } else if (password !== passwordConfirm) {
       alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-    } else {
+    } //input 양식 적합할 경우
+    else {
       // 가입하기 버튼 클릭시 실행, 입력된 데이터를 로컬 스토리지에 저장
       localStorage.setItem("namebox", korean_name);
       localStorage.setItem("phoneNumber", phoneNumber);

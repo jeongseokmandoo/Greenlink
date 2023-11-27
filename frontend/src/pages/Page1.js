@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../assets/logo.png";
 import Btn from "../components/Btn";
 import "./Page1.css";
-import AvatarList from "../components/AvatarList";
 
 function Page1(props) {
   return (
