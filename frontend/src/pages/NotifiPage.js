@@ -58,7 +58,10 @@ function NotifiPage() {
   useEffect(() => {
     fetch("data/notifi.json")
       .then((response) => response.json())
-      .then((data) => setItems(data))
+      .then((data) => {
+        const filteredData = data.filter((item) => item.pot === 1);
+        setItems(filteredData);
+      })
       .catch((error) => console.error(error));
   }, []); // 빈 의존성 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행
 

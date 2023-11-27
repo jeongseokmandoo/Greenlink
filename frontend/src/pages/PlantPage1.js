@@ -59,49 +59,68 @@ function NotifiHomeList() {
 }
 
 function PlantPage1() {
-  const [potData, setPotData] = useState({});
-  const [userData, setUserData] = useState({});
+  // const [potData, setPotData] = useState({});
+  // const [userData, setUserData] = useState({});
 
   // const potNumber = localStorage.getItem('plantId'); // localStorage에서 plantId 가져오기
   // const userId = localStorage.getItem('userId'); // localStorage에서 plantId 가져오기
-  const potNumber = 1;
-  const userId = 1;
+  const pot = {
+    pot_number: 1,
+    plant_name: "식물1",
+    start_date: "2023-01-01",
+    plant_type: "유형1",
+    moisture_level: 80,
+  };
+  const user = {
+    id: 1,
+    username: "user1",
+    email: "user1@example.com",
+    korean_name: "사용자1",
+    profile_picture: 1,
+    flower_pot: 1,
+    notifications_enabled: true,
+    nickname: "별명1",
+  };
 
-  useEffect(() => {
-    fetch("data/user.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const user = data.find((user) => user.id === userId); // 이 부분 수정
-        console.log(user);
-        setUserData(user);
-      })
-      .catch((error) => console.error(error));
-  }, [userId]);
+  // const fetchData = async () => {
+  //   try {
+  //     const response = fetch("data/user.json");
+  //     const data = response.json();
+  //     const user = data.find((user) => user.id === userId);
+  //     console.log(user);
+  //     setUserData(user);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchData();
+  // }, [userId]);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  // useEffect(() => {
+  //   console.log(userData);
+  // }, [userData]);
 
-  useEffect(() => {
-    localStorage.setItem("accessToken", "temporary-token");
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("accessToken", "temporary-token");
+  // }, []);
 
-  useEffect(() => {
-    fetch(`data/pot.json?id=${potNumber}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // 토큰이 필요한 경우
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const pot = data.find((pot) => pot.pot_number === potNumber);
-        console.log(pot);
-        setPotData(pot);
-      })
-      .catch((error) => console.error(error));
-  }, [potNumber]);
+  // useEffect(() => {
+  //   fetch(`data/pot.json?id=${potNumber}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // 토큰이 필요한 경우
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const pot = data.find((pot) => pot.pot_number === potNumber);
+  //       console.log(pot);
+  //       setPotData(pot);
+  //     })
+  //     .catch((error) => console.error(error));
+  // }, [potNumber]);
 
   const calculateDays = (startDate) => {
     const start = new Date(startDate);
@@ -111,10 +130,6 @@ function PlantPage1() {
     console.log(diffDays);
     return diffDays;
   };
-
-  if (!potData) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="Main">
@@ -127,15 +142,14 @@ function PlantPage1() {
         icon2={setting_icon}
       />
       <h1>
-        🌱 {userData.korean_name}와 함께한지{" "}
-        {calculateDays(userData.start_date)}일 차
+        🌱 {user.korean_name}와 함께한지 {calculateDays(user.start_date)}일 차
       </h1>
       <NotifiHomeList />
       <div>
         <PlantImage level={1} />
-        <p>{userData.nickname} Lv. 3</p>
+        <p>{pot.plant_name} Lv. 3</p>
       </div>
-      <HumidiBar humidity={userData.moisture_level} />
+      <HumidiBar humidity={pot.moisture_level} />
       <Btn2 text="사용 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />
     </div>
