@@ -10,6 +10,7 @@ import PersonalsetBtn from "../components/PersonalsetBtn";
 
 function SettingPage(props) {
   const navigate = useNavigate("/personal");
+  3;
   const personallock = () => {
     navigate("/personal");
   };
