@@ -1,10 +1,8 @@
 import React from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
-import MainNav from "../componenets/MainNav";
-import NotifiBox from "../componenets/NotifiBox";
-import items from "../mock2.json";
+import MainNav from "../components/MainNav";
 
 function NotificationPage() {
   return (
@@ -16,12 +14,6 @@ function NotificationPage() {
         icon1={setting_icon}
         icon2={x_icon}
       />
-      <div>
-        {items.map((item) => {
-          return <NotifiBox min={item.min} text={item.text} />;
-        })}
-      </div>
-
       <MainNav />
     </div>
   );

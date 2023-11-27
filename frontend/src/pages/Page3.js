@@ -1,58 +1,67 @@
-import React from "react";
-import Btn from "../componenets/Btn";
-import AccountNav from "../componenets/AccountNav";
-import { Input3 } from "../componenets/AccountInput";
-import { useState, useRef } from "react";
+import React, { useState } from "react";
+import AccountNav from "../components/AccountNav";
 import styles from "./Page3.module.css";
-import defaultImage from "../assets/default_image.png";
+import Avatar1 from "../assets/avatar/avatar1.png";
+import AvatarList from "../components/AvatarList";
+import SignupBtn from "../components/SignupBtn";
+import { useNavigate } from "react-router-dom";
 
 function Page3() {
-  const [File, setFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [fileListstyle, setFileListstyle] = useState(false); // 선택할 이미지 리스트 처음에 display: none으로
+  const navigate = useNavigate();
 
-  const button3 = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      setFile(reader.result);
-    };
-    reader.readAsDataURL(file);
+  const storelocalP3 = () => {
+    // 프로필 선택 안했다면
+    if (previewImage == null) {
+      alert("프로필을 선택해주세요.");
+    } //프로필 선택했다면 로컬 스토리지에 데이터 저장 후 url 이동
+    else {
+      localStorage.setItem("Profile_picture", previewImage);
+      navigate("/4");
+    }
   };
 
-  const ImageInput = useRef();
+  //이미지 클릭하면 이미지 선택 리스트 열고, 닫는 함수
+  const handleAvatarList = () => {
+    setFileListstyle(!fileListstyle);
+  };
 
-  const OnClickImageUpload = () => {
-    if (ImageInput.current) {
-      console.log("Clicking Input");
-      ImageInput.current.click();
-    }
+  //이미지 선택 리스트의 이미지 선택하면 해당 이미지로 설정하는 함수
+  const handleImageItemClick = (item) => {
+    setPreviewImage(item.target.src);
   };
 
   return (
     <div>
-      <h1>page3</h1>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
       <label htmlFor="file-input">
-        {File ? (
-          <img src={File} alt="uploaded file" className={styles.img} />
+        {previewImage ? (
+          <div>
+            {/* 이미지 선택 안한 상태에서 기본 avatar1 이미지 보여주기 */}
+            <img
+              src={previewImage}
+              alt="uploaded file"
+              className={styles.img}
+              onClick={handleAvatarList}
+            />
+          </div>
         ) : (
           <div>
+            {/* 선택한 아바타 이미지 보여주기*/}
             <img
-              src={defaultImage}
+              src={Avatar1}
               className={styles.img}
-              onClick={OnClickImageUpload}
+              onClick={handleAvatarList}
+              alt="basic file"
             />
           </div>
         )}
       </label>
-      <Input3
-        id="file-input"
-        type="file"
-        accept="image/"
-        onChange={button3}
-        ref={ImageInput}
-      />
-      <p>내 이미지를 등록하세요!</p>
-      <Btn text="가입하기" link="/4" />
+      <p>이미지를 클릭해서 선택해주세요!</p>
+      {/* 아바타 선택 리스트 */}
+      {fileListstyle && <AvatarList onClick={handleImageItemClick} />}
+      <SignupBtn text="가입하기" onClick={storelocalP3} />
     </div>
   );
 }
