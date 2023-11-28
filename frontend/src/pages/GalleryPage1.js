@@ -9,23 +9,23 @@ import GalleryPic2 from "../assets/GalleryPic2.png";
 import GalleryPic3 from "../assets/GalleryPic3.png";
 import GalleryPic4 from "../assets/GalleryPic4.png";
 import GalleryPic5 from "../assets/GalleryPic5.png";
-import styles from "./GalleryPage.css";
+import styles from "./GalleryPage1.module.css";
 
 function GalleryPage1(props) {
   return (
     <div>
       <TopNav text="퉁퉁이 사진" icon1={no_icon} icon2={no_icon} />
-      <p>2023.11.18</p>
+      <p className={styles.text}>2023.11.18</p>
       <div className={styles.box}>
         <GalleryPic img={GalleryPic2} />
         <GalleryPic img={GalleryPic1} />
       </div>
-      <p>2023.11.01</p>
+      <p className={styles.text}>2023.11.01</p>
       <div className={styles.box}>
         <GalleryPic img={GalleryPic3} />
         <GalleryPic img={GalleryPic4} />
       </div>
-      <p>2023.10.28</p>
+      <p className={styles.text}> 2023.10.28</p>
       <div className={styles.box}>
         <GalleryPic img={GalleryPic5} />
       </div>
