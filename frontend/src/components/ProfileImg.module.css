@@ -16,7 +16,13 @@
   justify-content: center;
   align-items: center;
 
-  height: auto;
+  width: 10vw;
+  height: 10vw;
   background-color: #e7f2ed;
   border-radius: 50%;
+}
+
+.profileImage2 img {
+  width: 100%;
+  height: auto;
 }

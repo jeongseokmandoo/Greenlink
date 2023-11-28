@@ -10,8 +10,9 @@ import Profileimg2 from "../assets/Setting_Icon.png";
 import Profileimg3 from "../assets/Gallery_Icon.png";
 import Profileimg4 from "../assets/Home_Icon.png";
 import { useState } from "react";
+import styles from "./GroupPage1.module.css";
 
-function GroupPage1(props) {
+function GroupPage1() {
   const [isInvited, setisInvited] = useState(false);
   const handleInviteFamily = () => {
     setisInvited(!isInvited);
@@ -27,16 +28,36 @@ function GroupPage1(props) {
         icon1={no_icon}
         icon2={setting_icon}
       />
-      <AccountBox
-        src={Profileimg1}
-        peoplename="이윤금"
-        nickname="이 집 최고 권력자"
-      />
-      <Btn2 text="내 프로필 수정" link="/group2" />
-      <h4>연결된 가족</h4>
-      <AccountBox src={Profileimg2} peoplename="박지한" nickname="귀염둥이" />
-      <AccountBox src={Profileimg3} peoplename="박하영" nickname="재롱둥이" />
-      <AccountBox src={Profileimg4} peoplename="윤동하" nickname="막내" />
+      <div>
+        <AccountBox
+          className={styles.accountbox}
+          src={Profileimg1}
+          peoplename="이윤금"
+          nickname="이 집 최고 권력자"
+        />
+        <Btn2 text="내 프로필 수정" link="/group2" />
+        <div className={styles.graybox}></div>
+        <h4>연결된 가족</h4>
+        <AccountBox
+          className={styles.accountbox}
+          src={Profileimg2}
+          peoplename="박지한"
+          nickname="귀염둥이"
+        />
+        <AccountBox
+          className={styles.accountbox}
+          src={Profileimg3}
+          peoplename="박하영"
+          nickname="재롱둥이"
+        />
+        <AccountBox
+          className={styles.accountbox}
+          src={Profileimg4}
+          peoplename="윤동하"
+          nickname="막내"
+        />
+      </div>
+      <div className={styles.graybox}></div>
       <button onClick={handleInviteFamily}>가족 초대하기</button>
       {isInvited && <p>화분번호</p>}
       <MainNav />
