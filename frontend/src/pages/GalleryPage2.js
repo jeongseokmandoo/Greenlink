@@ -1,10 +1,10 @@
 import React from "react";
-import TopNav from "../componenets/TopNav";
+import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
-import MainNav from "../componenets/MainNav";
-import Btn from "../componenets/Btn";
+import MainNav from "../components/MainNav";
+import Btn from "../components/Btn";
 import GalleryPage2Pic from "../assets/GalleryPage2Pic.png";
-import GalleryPic from "../componenets/GalleryPic";
+import GalleryPic from "../components/GalleryPic";
 
 function GalleryPage2(props) {
   return (

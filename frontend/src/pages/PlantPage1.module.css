@@ -1,0 +1,75 @@
+.main {
+  width: 100vw;
+  height: auto;
+}
+
+.main .notifihomelist {
+  width: 35vw;
+  height: auto;
+  position: absolute;
+  top: 10vh;
+  right: 6vw;
+}
+
+.main .notifihomelist .notifihomebox {
+  width: auto;
+  height: auto;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  background-color: grey;
+}
+
+.time {
+  font-size: 1.2em;
+  margin-top: 1vw;
+  margin-left: 2vw;
+}
+
+.notifitext {
+  font-size: 1.5em;
+  margin-top: 1vw;
+  margin-left: 2vw;
+  margin-bottom: 1vw;
+}
+
+.plantimage {
+  position: absolute;
+  top: 30vh;
+  left: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #e7f2ed;
+  border-radius: 50%;
+}
+
+.ptag {
+  position: absolute;
+  top: 60vh;
+  left: 40vw;
+  width: 20vw;
+
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.plantimage img {
+  position: absolute;
+  bottom: 3vh;
+  width: 70vw; /* 화면 너비의 50%만큼 이미지 크기를 설정합니다. */
+  height: auto; /* 이미지의 원래 비율을 유지합니다. */
+  border-radius: 50%; /* 이미지를 원형으로 만듭니다. */
+}
+
+.btn2 {
+  position: absolute;
+  bottom: 11vh;
+  right: 5vw;
+  width: 20vw;
+  height: 5vw;
+  background-color: #14c145;
+
+  font-size: 2em;
+  text-align: center;
+}

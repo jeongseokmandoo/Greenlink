@@ -1,0 +1,17 @@
+/* HumidityGauge.css */
+.gaugeContainer {
+  position: absolute;
+  top: 15vh;
+  left: 5vw;
+  width: 4vw;
+  height: 32vh;
+  background: linear-gradient(to top, red, blue);
+  position: relative;
+}
+
+.gauge {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: grey;
+}
