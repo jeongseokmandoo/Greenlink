@@ -4,13 +4,13 @@ import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
 import x_icon from "../assets/X_Icon.png";
 import NotifiBar from "../components/NotifiBar";
-import ChangePot from "../components/ChangePot";
 import "./Setting.css";
 import { useNavigate } from "react-router-dom";
 import PersonalsetBtn from "../components/PersonalsetBtn";
 
 function SettingPage(props) {
   const navigate = useNavigate("/personal");
+  3;
   const personallock = () => {
     navigate("/personal");
   };
@@ -29,7 +29,7 @@ function SettingPage(props) {
       <div className="contents">
         <PersonalsetBtn text="개인/보안" onClick={personallock} />
         <NotifiBar className="clickbox" />
-        <ChangePot className="clickbox" />
+        {/* <ChangePot className="clickbox" /> */}
       </div>
 
       <MainNav className="mainNav" />
