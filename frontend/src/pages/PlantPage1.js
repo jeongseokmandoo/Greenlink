@@ -4,12 +4,12 @@ import TopNav from "../components/TopNav";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../components/MainNav.js";
-import "./Setting.css";
+import styles from "./PlantPage1.module.css";
 import PlantImage from "../components/PlantImage";
 import HumidiBar from "../components/HumiBar";
 import { NotifiText } from "./NotifiPage.js";
 
-function NotifiHomeBox({ item }) {
+function NotifiHomeBox({ className, item }) {
   function calculateTime(created_at) {
     const now = new Date();
     const createdTime = new Date(created_at);
@@ -32,14 +32,14 @@ function NotifiHomeBox({ item }) {
   }
 
   return (
-    <div className="NotifiHome">
-      <div>{calculateTime(item.created_at)}</div>
-      <NotifiText message={item.message} />
+    <div className={className}>
+      <div className={styles.time}>{calculateTime(item.created_at)}</div>
+      <NotifiText className={styles.notifitext} message={item.message} />
     </div>
   );
 }
 
-function NotifiHomeList() {
+function NotifiHomeList({ className }) {
   const [items, setItems] = useState([]); // 초기값을 빈 배열로 설정
 
   useEffect(() => {
@@ -50,9 +50,9 @@ function NotifiHomeList() {
   }, []);
 
   return (
-    <div>
+    <div className={className}>
       {items.slice(-2).map((item) => {
-        return <NotifiHomeBox item={item} />;
+        return <NotifiHomeBox className={styles.notifihomebox} item={item} />;
       })}
     </div>
   );
@@ -133,7 +133,7 @@ function PlantPage1() {
   };
 
   return (
-    <div className="Main">
+    <div className={styles.main}>
       <TopNav
         className="topNav"
         text={undefined}
@@ -145,13 +145,13 @@ function PlantPage1() {
       <h1>
         🌱 {user.korean_name}와 함께한지 {calculateDays(pot.start_date)}일 차
       </h1>
-      <NotifiHomeList />
+      <NotifiHomeList className={styles.notifihomelist} />
       <div>
-        <PlantImage level={1} />
-        <p>{pot.plant_name} Lv. 3</p>
+        <PlantImage className={styles.plantimage} level={1} />
+        <p className={styles.ptag}>{pot.plant_name} Lv. 3</p>
       </div>
       <HumidiBar humidity={pot.moisture_level} />
-      <Btn2 text="사용 정보 수정" link="/plant2" />
+      <Btn2 className={styles.btn2} text="사용 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />
     </div>
   );

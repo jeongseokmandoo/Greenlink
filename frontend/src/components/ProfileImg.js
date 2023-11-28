@@ -11,8 +11,8 @@ function ProfileImg({ src, alt }) {
 
 function ProfileImg2({ src, alt }) {
   return (
-    <div>
-      <img src={src} alt={alt} className={styles.profileImage2} />
+    <div className={styles.profileImage2}>
+      <img src={src} alt={alt} />
     </div>
   );
 }

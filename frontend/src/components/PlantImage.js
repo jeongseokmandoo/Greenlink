@@ -1,18 +1,20 @@
 // ProfileImage.js
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "./PlantImage.css";
+// import "./PlantImage.css";
 import rabit1 from "../assets/rabit1.png";
 
 const style_home = {
-  width: "50vw",
+  width: "60vw",
+  height: "60vw",
 };
 
 const style_account = {
   width: "30vw",
+  height: "30vw",
 };
 
-function PlantImage() {
+function PlantImage({ className }) {
   const location = useLocation();
 
   let style;
@@ -23,7 +25,7 @@ function PlantImage() {
   }
 
   return (
-    <div style={style} className="plantImage">
+    <div style={style} className={className}>
       <img src={rabit1} alt="Profile" />
     </div>
   );

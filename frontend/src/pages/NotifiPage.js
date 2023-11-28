@@ -5,8 +5,8 @@ import x_icon from "../assets/X_Icon.png";
 import MainNav from "../components/MainNav";
 import styles from "./NotifiPage.module.css";
 
-export function NotifiText({ message = "알림 내용 들어감요" }) {
-  return <div className="NotifiText">{message}</div>;
+export function NotifiText({ className, message = "알림 내용 들어감요" }) {
+  return <div className={className}>{message}</div>;
 }
 
 function NotifiBox({ item }) {
