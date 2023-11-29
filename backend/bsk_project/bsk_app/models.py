@@ -37,13 +37,13 @@ class UserProfile(AbstractUser):
     
 
 
-UserProfile = get_user_model() # 직접 class로 부르는 것보다 보안 상 더 좋다! django 에서 권장함
+# UserProfile = get_user_model() # 직접 class로 부르는 것보다 보안 상 더 좋다! django 에서 권장함
 
 class Notification(models.Model):
     flower_pot = models.ForeignKey(FlowerPot, on_delete=models.CASCADE, related_name='notifications')
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    path = models.CharField(max_length=255)
+    # path = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.flower_pot} - {self.message}"

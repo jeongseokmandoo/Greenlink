@@ -4,14 +4,16 @@ from rest_framework.views import APIView
 from .serializers import SignUpSerializer, UserProfileSerializer, FlowerPotSerializer, NotificationSerializer, FamilyMemberSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
 from bsk_project.settings import SECRET_KEY
 import jwt
-from .models import FlowerPot
+from .models import FlowerPot, Notification
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
+
+
 
 # class SignUpView(APIView):
 #     def post(self, request, *args, **kwargs):
@@ -29,6 +31,38 @@ from django.contrib.auth import get_user_model
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
+from django.urls import reverse
+from .forms import MoistureLevelForm
+
+@staff_member_required
+def update_moisture_level(request, pot_number):
+    flower_pot = get_object_or_404(FlowerPot, pot_number=pot_number)
+
+    if request.method == 'POST':
+        form = MoistureLevelForm(request.POST)
+        if form.is_valid():
+            new_moisture_level = form.cleaned_data['moisture_level']
+
+            # 업데이트된 moisture_level 저장
+            flower_pot.moisture_level = new_moisture_level
+            flower_pot.save()
+
+            # 알림 생성 및 저장
+            if new_moisture_level <= 30:
+                message = '물 주세요!!'
+                Notification.objects.create(flower_pot=flower_pot, message=message, path='/')
+            elif new_moisture_level >= 80:
+                message = 'NEXT님이 식물에 물을 주었습니다!'
+                Notification.objects.create(flower_pot=flower_pot, message=message, path='/')
+
+            messages.success(request, 'Moisture level updated successfully!')
+            redirect_url = reverse('update_moisture_level', kwargs={'pot_number': pot_number})
+            return redirect(redirect_url)
+
+    form = MoistureLevelForm()
+    return render(request, 'update_moisture_level.html', {'form': form, 'flower_pot': flower_pot})
 
 
 
@@ -131,6 +165,29 @@ class AuthView(APIView):
         return Response({'message': "delete complete"},status.HTTP_200_OK)
 
 
+
+class HomeView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+
+        # 화분 정보 가져오기
+        flower_pot = user.flower_pot
+        flower_serializer = FlowerPotSerializer(flower_pot)
+
+        # 알림 가져오기
+        notifications = user.notifications
+        notification_serializer = NotificationSerializer(notifications, many=True)
+
+        return Response(
+            {
+                'flower_pot': flower_serializer.data,
+                'notifications': notification_serializer.data,
+                'message': 'complete',
+            },
+            status=status.HTTP_200_OK)
 
 
 
