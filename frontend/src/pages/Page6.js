@@ -65,8 +65,12 @@ function Page6(props) {
   };
   return (
     <div>
-      <AccountNav text1="비밀번호 재설정" text2=" " link1="/" />
-      <div style={{ marginTop: "25vh" }}>
+      <AccountNav
+        text1="비밀번호 재설정"
+        text2="&nbsp;&nbsp;&nbsp;"
+        link1="/"
+      />
+      <div style={{ marginTop: "7vh" }}>
         <Input2
           type="text"
           value={phoneNumber}

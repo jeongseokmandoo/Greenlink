@@ -41,7 +41,7 @@ function Page2(props) {
   return (
     <div>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
-      <div style={{ marginTop: "20vh" }}>
+      <div style={{ marginTop: "10vh" }}>
         <Input2
           type="text"
           value={korean_name}

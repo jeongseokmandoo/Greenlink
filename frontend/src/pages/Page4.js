@@ -11,7 +11,7 @@ const ptag1 = {
   justifyContent: "center",
   fontSize: "calc(1.5vh + 1.25vw)",
   fontWeight: "bold",
-  marginTop: "25vh",
+  marginTop: "10vh",
   marginBottom: "2.5vh",
 };
 

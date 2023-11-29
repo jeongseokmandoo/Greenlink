@@ -76,7 +76,7 @@ function Page5(props) {
   return (
     <div>
       <AccountNav text1="로그인" text2="가입하기" link1="/2" />
-      <div style={{ marginTop: "25vh" }}>
+      <div style={{ marginTop: "10vh" }}>
         <Input2
           type="text"
           value={phoneNumber}
