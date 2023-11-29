@@ -10,14 +10,21 @@
 }
 
 .topNav .title {
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   margin-left: 6vw;
 }
 
 .topNav .btnbox {
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 20vw;
 }
 
 .topNav .btnbox .btn {
-  margin: 1vw;
+  width: 7vw;
+  height: 7vw;
+  align-items: center;
 }

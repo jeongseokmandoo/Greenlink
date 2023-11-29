@@ -32,9 +32,11 @@ function NotifiHomeBox({ className, item }) {
   }
 
   return (
-    <div className={className}>
+    <div className={styles.container}>
       <div className={styles.time}>{calculateTime(item.created_at)}</div>
-      <NotifiText className={styles.notifitext} message={item.message} />
+      <div className={className}>
+        <NotifiText className={styles.notifitext} message={item.message} />
+      </div>
     </div>
   );
 }
@@ -51,9 +53,12 @@ function NotifiHomeList({ className }) {
 
   return (
     <div className={className}>
-      {items.slice(-2).map((item) => {
-        return <NotifiHomeBox className={styles.notifihomebox} item={item} />;
-      })}
+      {items
+        .slice(-3)
+        .reverse()
+        .map((item) => {
+          return <NotifiHomeBox className={styles.notifihomebox} item={item} />;
+        })}
     </div>
   );
 }
@@ -142,16 +147,22 @@ function PlantPage1() {
         icon1={on_bell_icon}
         icon2={setting_icon}
       />
-      <h1>
-        🌱 {user.korean_name}와 함께한지 {calculateDays(pot.start_date)}일 차
-      </h1>
+      <div className={styles.titlebox}>
+        <div className={styles.title}>
+          🌱 {user.korean_name}와 함께한지 {calculateDays(pot.start_date)}일째
+        </div>
+        <div className={styles.titleback}></div>
+      </div>
       <NotifiHomeList className={styles.notifihomelist} />
       <div>
-        <PlantImage className={styles.plantimage} level={1} />
-        <p className={styles.ptag}>{pot.plant_name} Lv. 3</p>
+        <PlantImage className={styles.plantimage} level={3} />
+        <div className={styles.potnamebox}>
+          <div className={styles.potname}>{pot.plant_name}</div>
+          <div className={styles.level}>Lv. 3</div>
+        </div>
       </div>
       <HumidiBar humidity={pot.moisture_level} />
-      <Btn2 className={styles.btn2} text="사용 정보 수정" link="/plant2" />
+      <Btn2 text="식물 정보 수정" link="/plant2" />
       <MainNav className="mainNav" />
     </div>
   );
