@@ -18,24 +18,10 @@ class FlowerPot(models.Model):
         return f"{self.plant_name} - Pot Number {self.pot_number}"
 
 
-# class ProfileImage(models.Model):
-#     identifier = models.CharField(
-#         max_length=255, unique=True, default='default_identifier')
-#     file_path = models.ImageField(
-#         upload_to='profile_img/', default='profile_img/1.jpg')
-
-#     def __str__(self):
-#         return self.identifier
-# class ProfileImage(models.Model):
-#     file_path = models.URLField(unique=True)
-
-#     def __str__(self):
-#         return self.file_path
-
 
 class UserProfile(AbstractUser):
     korean_name = models.CharField(max_length=30, blank=True, null=True)
-    profile_picture = models.URLField(unique=True, null=True, blank=True)
+    profile_picture = models.URLField(null=True, blank=True)
     flower_pot = models.ForeignKey(
         FlowerPot, on_delete=models.SET_NULL, null=True, blank=True, related_name="users")
     notifications_enabled = models.BooleanField(default=True)
@@ -52,6 +38,7 @@ class Notification(models.Model):
     flower_pot = models.ForeignKey(
         FlowerPot, on_delete=models.CASCADE, related_name='notifications')
     message = models.TextField()
+    emoticon = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     # path = models.CharField(max_length=255)
 

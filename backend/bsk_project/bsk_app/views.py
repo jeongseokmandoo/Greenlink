@@ -5,28 +5,10 @@ from .serializers import SignUpSerializer, UserProfileSerializer, FlowerPotSeria
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404, render, redirect
-from bsk_project.settings import SECRET_KEY
 from .models import FlowerPot, Notification
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
-
-# class SignUpView(APIView):
-#     def post(self, request, *args, **kwargs):
-#         serializer = SignUpSerializer(data=request.data)
-#         if serializer.is_valid():
-#             user = serializer.save() # 자동으로 serializers.py에서 create 실행
-#             response_data = {
-#                 'message': 'User created successfully', # message 가 있으면 서버와의 소통 용이
-#                 'user_id': user.id,    # phone number
-#                 'username': user.username,
-#                 'korean_name': user.korean_name,
-#                 # Include other fields as needed
-#             }
-#             return Response(response_data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from django.urls import reverse
@@ -48,13 +30,15 @@ def update_moisture_level(request, pot_number):
 
             # 알림 생성 및 저장
             if new_moisture_level <= 30:
-                message = '물 주세요!!'
+                message = '물 주세요 💦🥵'
+                emoticon = '💧'
                 Notification.objects.create(
-                    flower_pot=flower_pot, message=message, path='/')
+                    flower_pot=flower_pot, message=message, emoticon=emoticon)
             elif new_moisture_level >= 80:
-                message = 'NEXT님이 식물에 물을 주었습니다!'
+                message = '🐯 NEXT님이 식물에 물을 주었습니다!'
+                emoticon = '💧'
                 Notification.objects.create(
-                    flower_pot=flower_pot, message=message, path='/')
+                    flower_pot=flower_pot, message=message, emoticon=emoticon)
 
             messages.success(request, 'Moisture level updated successfully!')
             redirect_url = reverse('update_moisture_level', kwargs={
@@ -89,11 +73,6 @@ class SignUpView(APIView):
                 },
             }
 
-            # # 응답에 JWT 토큰을 쿠키에 저장
-            # response = Response(response_data, status=status.HTTP_201_CREATED)
-            # response.set_cookie("access", access_token, httponly=True)
-            # response.set_cookie("refresh", refresh_token, httponly=True)
-
             return Response(response_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -119,7 +98,7 @@ class AuthView(APIView):
                     "message": "login success",
                     "token": {
                         "access": access_token,
-                        "refresh": refresh_token,
+                        # "refresh": refresh_token,
                     },
                 },
                 status=status.HTTP_200_OK,
@@ -132,14 +111,6 @@ class AuthView(APIView):
     @permission_classes([IsAuthenticated])
     def get(self, request):
         user = request.user
-
-        # token implemented by headers
-
-        # # access token을 decode 해서 유저 id 추출 => 유저 식별
-        # access = request.COOKIES['access']
-        # payload = jwt.decode(access, SECRET_KEY, algorithms=['HS256'])
-        # pk = payload.get('user_id')
-        # user = get_object_or_404(UserProfile, pk=pk)
         serializer = UserProfileSerializer(instance=user)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -174,7 +145,7 @@ class HomeView(APIView):
         flower_serializer = FlowerPotSerializer(flower_pot)
 
         # 알림 가져오기
-        notifications = user.notifications
+        notifications = flower_pot.notifications
         notification_serializer = NotificationSerializer(
             notifications, many=True)
 
@@ -193,19 +164,22 @@ class FlowerView(APIView):
 
     def get(self, request):
         user = request.user
-
         flower_pot = user.flower_pot
         flower_serializer = FlowerPotSerializer(data=flower_pot)
         return Response({'message': "complete", 'flower_serializer': flower_serializer.data}, status=status.HTTP_200_OK)
 
     def patch(self, request):
-        serializer = FlowerPotSerializer(data=request.data, partial=True)
+        user = request.user
+        flower_pot = user.flower_pot
+
+        serializer = FlowerPotSerializer(instance=flower_pot, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
 
         else:
-            return Response({"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"message": "Invalid credentials", 'serializer': serializer.data}, status=status.HTTP_400_BAD_REQUEST)
         return Response({'message': "complete", 'serializer': serializer.data}, status=status.HTTP_200_OK)
+
 
 
 class FamilyView(APIView):
@@ -225,24 +199,22 @@ class FamilyView(APIView):
         return Response({'family_members': serializer.data}, status=status.HTTP_200_OK)
 
 
-class NotificationView(APIView):
 
+class NotificationView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user = request.user
-
         flower_pot = user.flower_pot
-        notificatiions = user.notifications
+        notifications = flower_pot.notifications.all()
 
         content = dict()
 
-        flower_serializer = FlowerPotSerializer(data=flower_pot)
-        notification_serializer = NotificationSerializer(
-            data=notificatiions, many=True)
+        flower_serializer = FlowerPotSerializer(flower_pot)
+        notification_serializer = NotificationSerializer(notifications, many=True)
 
         content['flower_pot'] = flower_serializer.data
-        content['notificatiions'] = notification_serializer.data
+        content['notifications'] = notification_serializer.data
 
         return Response({'message': "complete", 'content': content}, status=status.HTTP_200_OK)
