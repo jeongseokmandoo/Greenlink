@@ -6,7 +6,6 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404, render, redirect
 from bsk_project.settings import SECRET_KEY
-import jwt
 from .models import FlowerPot, Notification
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework_simplejwt.authentication import JWTAuthentication
