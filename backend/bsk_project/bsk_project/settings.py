@@ -50,7 +50,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (  # API에 접근할 때 헤더에 access_token을 포함한, 유효한 유저만이 접근할 수 있도록 default로 설정해주는 부분
         # 'rest_framework.permissions.IsAuthenticated', # 인증된 사용자만 접근
         # 'rest_framework.permissions.IsAdminUser', # 관리자만 접근
-        'rest_framework.permissions.AllowAny', # 누구나 접근
+        'rest_framework.permissions.AllowAny',  # 누구나 접근
     ),
 }
 
