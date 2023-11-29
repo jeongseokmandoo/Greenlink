@@ -31,7 +31,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class SignUpSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    profile_picture = serializers.URLField(write_only=True, required=False)
+    # profile_picture = serializers.URLField(write_only=True, required=False)
 
     class Meta:
         model = UserProfile
