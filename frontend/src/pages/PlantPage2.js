@@ -6,6 +6,7 @@ import UpdateBox from "../components/UpdateBox";
 import PlantImage from "../components/PlantImage";
 import { Link } from "react-router-dom";
 import BigBtn from "../components/BigBtn";
+import styles from "./PlantPage2.module.css";
 
 function PlantPage2(props) {
   const [plantName, setPlantName] = useState("");
@@ -16,9 +17,8 @@ function PlantPage2(props) {
 
   return (
     <div>
-      <h1>plantpage2</h1>
       <Link to="/plant1">&lt; 돌아가기</Link>
-      <PlantImage />
+      <PlantImage className={styles.plantimage} level={3} />
       <TopNav
         text={undefined}
         link1="/notification"

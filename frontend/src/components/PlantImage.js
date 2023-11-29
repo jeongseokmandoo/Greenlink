@@ -5,8 +5,8 @@ import { useLocation } from "react-router-dom";
 import rabit1 from "../assets/rabit1.png";
 
 const style_home = {
-  width: "60vw",
-  height: "60vw",
+  width: "69vw",
+  height: "69vw",
 };
 
 const style_account = {
