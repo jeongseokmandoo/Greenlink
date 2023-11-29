@@ -11,13 +11,20 @@ function Page3() {
   const [fileListstyle, setFileListstyle] = useState(false); // 선택할 이미지 리스트 처음에 display: none으로
   const navigate = useNavigate();
 
+  const ptag = {
+    display: "flex",
+    justifyContent: "center",
+    fontSize: "calc(1.25vw + 1.25vh)",
+    marginBottom: "0",
+  };
+
   const storelocalP3 = () => {
     // 프로필 선택 안했다면
     if (previewImage == null) {
       alert("프로필을 선택해주세요.");
     } //프로필 선택했다면 로컬 스토리지에 데이터 저장 후 url 이동
     else {
-      localStorage.setItem("Profile_picture", previewImage);
+      localStorage.setItem("profile_picture", previewImage);
       navigate("/4");
     }
   };
@@ -58,7 +65,7 @@ function Page3() {
           </div>
         )}
       </label>
-      <p>이미지를 클릭해서 선택해주세요!</p>
+      <p style={ptag}>이미지를 클릭해서 선택해주세요!</p>
       {/* 아바타 선택 리스트 */}
       {fileListstyle && <AvatarList onClick={handleImageItemClick} />}
       <SignupBtn text="가입하기" onClick={storelocalP3} />

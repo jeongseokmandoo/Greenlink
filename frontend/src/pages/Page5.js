@@ -5,6 +5,13 @@ import { Input2 } from "../components/AccountInput";
 import { useState } from "react";
 import BigBtn from "../components/BigBtn";
 
+const to6 = {
+  textDecoration: "none",
+  display: "flex",
+  justifyContent: "center",
+  fontSize: "calc(1vh + 1.25vw)",
+};
+
 function Page5(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -28,11 +35,11 @@ function Page5(props) {
       );
     } //양식 잘 입력하면
     else {
-      localStorage.setItem("phoneNumber", phoneNumber);
+      localStorage.setItem("username", phoneNumber);
       localStorage.setItem("password", password);
       // 로그인 버튼 클릭시 보낼 데이터
       const data = {
-        phoneNumber: localStorage.getItem("phoneNumber"),
+        phoneNumber: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
       };
       console.log(data); //data 양식 확인
@@ -69,19 +76,23 @@ function Page5(props) {
   return (
     <div>
       <AccountNav text1="로그인" text2="가입하기" link1="/2" />
-      <Input2
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        placeholder="전화번호"
-      />
-      <Input2
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="비밀번호"
-      />
-      <Link to="/6">비밀번호를 잊어버리셨나요?</Link>
+      <div style={{ marginTop: "25vh" }}>
+        <Input2
+          type="text"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="전화번호"
+        />
+        <Input2
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="비밀번호"
+        />
+      </div>
+      <Link to="/6" style={to6}>
+        비밀번호를 잊어버리셨나요?
+      </Link>
       <BigBtn onClick={login} text="로그인하기" />
     </div>
   );
