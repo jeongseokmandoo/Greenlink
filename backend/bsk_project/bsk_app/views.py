@@ -1,13 +1,13 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import SignUpSerializer, UserProfileSerializer, FlowerPotSerializer, NotificationSerializer
+from .serializers import SignUpSerializer, UserProfileSerializer, FlowerPotSerializer, NotificationSerializer, FamilyMemberSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 from django.shortcuts import get_object_or_404
 from bsk_project.settings import SECRET_KEY
 import jwt
-from .models import UserProfile
+from .models import FlowerPot
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -27,6 +27,10 @@ from django.contrib.auth import get_user_model
 #             }
 #             return Response(response_data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
 
 class SignUpView(APIView):
     
@@ -108,13 +112,15 @@ class AuthView(APIView):
     
     @authentication_classes([JWTAuthentication])
     @permission_classes([IsAuthenticated])
+
     def patch(self, request):
-        serializer = UserProfileSerializer(instance=request.user, data=request.data, partial=True)
+        serializer = UserProfileSerializer(instance=request.user, data=request.data, partial=True) # instance : 업데이트할 모델 인스턴스, data : 전달할 데이터
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response({"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+
     
     
 
@@ -133,9 +139,7 @@ class FlowerView(APIView):
     permission_classes = [IsAuthenticated]
 
     
-
     def get(self, request):
-
         user = request.user
 
         flower_pot = user.flower_pot
@@ -143,15 +147,30 @@ class FlowerView(APIView):
         return Response({'message': "complete", 'flower_serializer':flower_serializer.data}, status=status.HTTP_200_OK)
         
     def patch(self, request):
-        user = request.user
-
         serializer = FlowerPotSerializer(data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
+            return Response({'message': "complete", 'serializer': serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+    
 
-        return Response({'message': "complete", 'serializer': serializer.data}, status=status.HTTP_200_OK)
+class FamilyView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     
-    
+    def get(self, request):
+        # 현재 로그인한 사용자 정보 가져오기
+        current_user = request.user
+        # 현재 사용자의 flower_pot 가져오기
+        flower_pot = current_user.flower_pot
+        # 해당 flower_pot을 공유하는 사용자들 가져오기
+        family_members = flower_pot.users.all()
+        serializer = FamilyMemberSerializer(family_members, many=True, context={'current_user': current_user})
+
+        return Response({'family_members': serializer.data}, status=status.HTTP_200_OK)
+   
+
 
 class NotificationView(APIView):
 

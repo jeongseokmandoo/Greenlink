@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
-from .models import FlowerPot, ProfileImage, Notification
+from .models import FlowerPot, ProfileImage, Notification, UserProfile
 from rest_framework.authtoken.models import Token
 
 
@@ -47,6 +47,20 @@ class SignUpSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+
+class FamilyMemberSerializer(serializers.ModelSerializer):
+    is_current_user = serializers.SerializerMethodField()
+
+    class Meta:
+        model = UserProfile
+        fields = ['nickname', 'profile_picture', 'korean_name', 'is_current_user']
+
+    def get_is_current_user(self, obj):
+        # 현재 로그인한 사용자와 현재 사용자 정보가 같은지 확인
+        current_user = self.context.get('current_user')
+        return obj == current_user
+
 
 # class LoginSerializer(serializers.Serializer):
 #     username = serializers.CharField()
