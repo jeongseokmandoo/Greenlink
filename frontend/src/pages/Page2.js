@@ -31,41 +31,42 @@ function Page2(props) {
     } //input 양식 적합할 경우
     else {
       // 가입하기 버튼 클릭시 실행, 입력된 데이터를 로컬 스토리지에 저장
-      localStorage.setItem("namebox", korean_name);
-      localStorage.setItem("phoneNumber", phoneNumber);
+      localStorage.setItem("korean_name", korean_name);
+      localStorage.setItem("username", phoneNumber);
       localStorage.setItem("password", password);
-      localStorage.setItem("passwordConfirm", passwordConfirm);
       navigate("/3");
     }
   };
 
   return (
-    <div className="page2div">
+    <div>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
-      <Input2
-        type="text"
-        value={korean_name}
-        onChange={(e) => setKorean_name(e.target.value)}
-        placeholder="성명"
-      />
-      <Input2
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        placeholder="전화번호(010XXXXXXXX)"
-      />
-      <Input2
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="비밀번호"
-      />
-      <Input2
-        type="password"
-        value={passwordConfirm}
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        placeholder="비밀번호 확인"
-      />
+      <div style={{ marginTop: "20vh" }}>
+        <Input2
+          type="text"
+          value={korean_name}
+          onChange={(e) => setKorean_name(e.target.value)}
+          placeholder="성명"
+        />
+        <Input2
+          type="text"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="전화번호(010XXXXXXXX)"
+        />
+        <Input2
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="비밀번호"
+        />
+        <Input2
+          type="password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          placeholder="비밀번호 확인"
+        />
+      </div>
       <SignupBtn text="가입하기" onClick={storelocalP2} />
     </div>
   );

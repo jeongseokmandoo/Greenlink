@@ -66,24 +66,26 @@ function Page6(props) {
   return (
     <div>
       <AccountNav text1="비밀번호 재설정" text2=" " link1="/" />
-      <Input2
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        placeholder="전화번호"
-      />
-      <Input2
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="비밀번호"
-      />
-      <Input2
-        type="password"
-        value={passwordConfirm}
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        placeholder="비밀번호 확인"
-      />
+      <div style={{ marginTop: "25vh" }}>
+        <Input2
+          type="text"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="전화번호"
+        />
+        <Input2
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="비밀번호"
+        />
+        <Input2
+          type="password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          placeholder="비밀번호 확인"
+        />
+      </div>
       <BigBtn onClick={resetpassword} text="비밀번호 재설정" />
     </div>
   );
