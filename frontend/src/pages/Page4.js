@@ -6,6 +6,22 @@ import BigBtn from "../components/BigBtn";
 
 // 토큰 관련된 건 대부분 백에서 만들어주면 프론트에서 받아서 설정
 
+const ptag1 = {
+  display: "flex",
+  justifyContent: "center",
+  fontSize: "calc(1.5vh + 1.25vw)",
+  fontWeight: "bold",
+  marginTop: "25vh",
+  marginBottom: "2.5vh",
+};
+
+const ptag2 = {
+  display: "flex",
+  justifyContent: "center",
+  fontSize: "calc(1vh + 1.25vw)",
+  marginBottom: "2.5vh",
+};
+
 function Page4(props) {
   const [plantnumber, setPlantnumber] = useState(""); //화분번호 state
   const navigate = useNavigate();
@@ -43,8 +59,14 @@ function Page4(props) {
         .then((response) => {
           //성공적으로 백에 데이터 보냈을 때
           if (response.ok) {
-            alert("회원가입에 성공하셨습니다.");
-            navigate("/5");
+            response.json().then((data) => {
+              if (data.token && data.token.access) {
+                alert(data.message); // 회원가입 성공
+                navigate("/5");
+              } else {
+                throw new Error("회원가입에 실패하셨습니다."); //회원가입 실패
+              }
+            });
           }
           // 데이터 보내기 실패했을 때
           else {
@@ -62,7 +84,7 @@ function Page4(props) {
   return (
     <div>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
-      <h1>화분 하단의 번호를 입력해주세요.</h1>
+      <p style={ptag1}>화분 하단의 번호를 입력해주세요.</p>
       {/* plantnumber 작성 input */}
       <Input2
         type="text"
@@ -70,7 +92,7 @@ function Page4(props) {
         onChange={(e) => setPlantnumber(e.target.value)}
         placeholder="화분번호"
       />
-      <p>아직 화분이 없어요.</p>
+      <p style={ptag2}>아직 화분이 없어요.</p>
       <BigBtn onClick={start} text="시작하기" />
     </div>
   );

@@ -1,20 +1,6 @@
 import React from "react";
 import styles from "./AccountInput.module.css";
 
-function Input1({ type, value, onChange, placeholder }) {
-  return (
-    <div>
-      <input
-        className={styles.Input}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-    </div>
-  );
-}
-
 function Input2({ type, value, onChange, placeholder }) {
   return (
     <div>
@@ -42,4 +28,4 @@ const Input3 = React.forwardRef(({ type, onChange }, ref) => {
   );
 });
 
-export { Input1, Input2, Input3 };
+export { Input2, Input3 };

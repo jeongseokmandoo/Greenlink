@@ -1,8 +1,8 @@
-.Btn {
+.BigBtn {
   align-items: center;
   display: flex;
-  width: 70vw;
-  margin: 1.5vh 9vw 0 9vw;
+  width: 72vw;
+  margin: 3vh 14vw 0 14vw;
   padding: 1vh 6vw;
   color: white;
   background-color: #517849;

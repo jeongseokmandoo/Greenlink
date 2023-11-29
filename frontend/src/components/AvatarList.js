@@ -15,25 +15,32 @@ import avatar12 from "../assets/avatar/avatar12.png";
 import avatar13 from "../assets/avatar/avatar13.png";
 import avatar14 from "../assets/avatar/avatar14.png";
 import avatar15 from "../assets/avatar/avatar15.png";
+import styles from "./AvatarList.module.css";
 
 function AvatarList({ onClick }) {
   return (
-    <div>
-      <AvatarIcon src={avatar1} alt="1" onClick={onClick} />
-      <AvatarIcon src={avatar2} alt="2" onClick={onClick} />
-      <AvatarIcon src={avatar3} alt="3" onClick={onClick} />
-      <AvatarIcon src={avatar4} alt="4" onClick={onClick} />
-      <AvatarIcon src={avatar5} alt="5" onClick={onClick} />
-      <AvatarIcon src={avatar6} alt="6" onClick={onClick} />
-      <AvatarIcon src={avatar7} alt="7" onClick={onClick} />
-      <AvatarIcon src={avatar8} alt="8" onClick={onClick} />
-      <AvatarIcon src={avatar9} alt="9" onClick={onClick} />
-      <AvatarIcon src={avatar10} alt="10" onClick={onClick} />
-      <AvatarIcon src={avatar11} alt="11" onClick={onClick} />
-      <AvatarIcon src={avatar12} alt="12" onClick={onClick} />
-      <AvatarIcon src={avatar13} alt="13" onClick={onClick} />
-      <AvatarIcon src={avatar14} alt="14" onClick={onClick} />
-      <AvatarIcon src={avatar15} alt="15" onClick={onClick} />
+    <div className={styles.bigbox}>
+      <div className={styles.box}>
+        <AvatarIcon src={avatar1} alt="1" onClick={onClick} />
+        <AvatarIcon src={avatar2} alt="2" onClick={onClick} />
+        <AvatarIcon src={avatar3} alt="3" onClick={onClick} />
+        <AvatarIcon src={avatar4} alt="4" onClick={onClick} />
+        <AvatarIcon src={avatar5} alt="5" onClick={onClick} />
+      </div>
+      <div className={styles.box}>
+        <AvatarIcon src={avatar6} alt="6" onClick={onClick} />
+        <AvatarIcon src={avatar7} alt="7" onClick={onClick} />
+        <AvatarIcon src={avatar8} alt="8" onClick={onClick} />
+        <AvatarIcon src={avatar9} alt="9" onClick={onClick} />
+        <AvatarIcon src={avatar10} alt="10" onClick={onClick} />
+      </div>
+      <div className={styles.box}>
+        <AvatarIcon src={avatar11} alt="11" onClick={onClick} />
+        <AvatarIcon src={avatar12} alt="12" onClick={onClick} />
+        <AvatarIcon src={avatar13} alt="13" onClick={onClick} />
+        <AvatarIcon src={avatar14} alt="14" onClick={onClick} />
+        <AvatarIcon src={avatar15} alt="15" onClick={onClick} />
+      </div>
     </div>
   );
 }
