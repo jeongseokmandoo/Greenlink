@@ -165,7 +165,7 @@ class FlowerView(APIView):
     def get(self, request):
         user = request.user
         flower_pot = user.flower_pot
-        flower_serializer = FlowerPotSerializer(data=flower_pot)
+        flower_serializer = FlowerPotSerializer(flower_pot)
         return Response({'message': "complete", 'flower_serializer': flower_serializer.data}, status=status.HTTP_200_OK)
 
     def patch(self, request):
