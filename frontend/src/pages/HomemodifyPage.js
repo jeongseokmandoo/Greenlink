@@ -6,7 +6,7 @@ import UpdateBox from "../components/UpdateBox";
 import PlantImage from "../components/PlantImage";
 import { Link } from "react-router-dom";
 import BigBtn from "../components/BigBtn";
-import styles from "./PlantPage2.module.css";
+import styles from "./HomemodifyPage.module.css";
 import MainNav from "../components/MainNav";
 
 const userInfo = {
@@ -36,7 +36,7 @@ const plantName = userInfo.user.flower_pot.plant_name;
 const plantSort = userInfo.user.flower_pot.plant_type;
 const plantDate = userInfo.user.flower_pot.start_date;
 
-function PlantPage2() {
+function HomemodifyPage() {
   // const [plantName, setPlantName] = useState("");
   // const [plantSort, setPlantSort] = useState("");
   // const [plantDate, setPlantDate] = useState("");
@@ -122,6 +122,4 @@ function PlantPage2() {
   );
 }
 
-
-export default PlantPage2;
-
+export default HomemodifyPage;

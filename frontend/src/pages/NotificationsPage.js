@@ -200,7 +200,6 @@ function Notifications() {
       <TopNav
         text="알림"
         link1="/setting"
-
         link2="/plant1"
         icon1={setting_icon}
         icon2={x_icon}
@@ -212,6 +211,4 @@ function Notifications() {
   );
 }
 
-
-export default NotifiPage;
-
+export default Notification;

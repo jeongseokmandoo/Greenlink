@@ -14,7 +14,7 @@ import Homemodify from "./pages/HomemodifyPage";
 import GallerydetailPage from "./pages/GallerydetailPage";
 import Accountmodify from "./pages/AccountmodifyPage";
 import { useState } from "react";
-import PageLoginplease from "./pages/PageloginpleasePage";
+import Loginplease from "./pages/LoginpleasePage";
 
 function Main() {
   const [token, setToken] = useState(true);
@@ -30,15 +30,15 @@ function Main() {
             <Route path="/signupstep2" element={<Signupstep2Page />} />
             <Route path="/api/signup/" element={<SignupPage />} />
             <Route path="/api/login/" element={<LoginPage />} />
-            <Route path="/galleryhome" element={<PageLoginplease />} />
-            <Route path="/gallerydetail" element={<PageLoginplease />} />
-            <Route path="/api/home" element={<PageLoginplease />} />
-            <Route path="/api/home_modify" element={<PageLoginplease />} />
-            <Route path="/api/accounthome" element={<PageLoginplease />} />
-            <Route path="/api/accountmodify" element={<PageLoginplease />} />
-            <Route path="/api/notifications" element={<PageLoginplease />} />
-            <Route path="/setting" element={<PageLoginplease />} />
-            <Route path="/security" element={<PageLoginplease />} />
+            <Route path="/galleryhome" element={<Loginplease />} />
+            <Route path="/gallerydetail" element={<Loginplease />} />
+            <Route path="/api/home" element={<Loginplease />} />
+            <Route path="/api/home_modify" element={<Loginplease />} />
+            <Route path="/api/accounthome" element={<Loginplease />} />
+            <Route path="/api/accountmodify" element={<Loginplease />} />
+            <Route path="/api/notifications" element={<Loginplease />} />
+            <Route path="/setting" element={<Loginplease />} />
+            <Route path="/security" element={<Loginplease />} />
           </>
         ) : (
           <>

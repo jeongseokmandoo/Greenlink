@@ -1,12 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const h1style = {
+  marginTop: "10vh",
+  jusifyContent: "center",
+  fontSize: "calc(2vh + 2vw)",
+  alignItems: "center",
+};
+
+const linkstyle = {
+  fontSize: "calc(1vh + 1.5vw)",
+  textDecoration: "none",
+};
+
 function Loginplease(prop) {
   return (
-    <>
-      <h1>로그인 후 이용해주세요.</h1>
-      <Link to={"/2"}> 로그인 페이지로 이동</Link>
-    </>
+    <div style={{ textAlign: "center" }}>
+      <h1 style={h1style}>로그인 후 이용해주세요.</h1>
+      <Link to={"/login"} style={linkstyle}>
+        {" "}
+        로그인 페이지로 이동
+      </Link>
+    </div>
   );
 }
 

@@ -38,11 +38,11 @@ function LoginPage(props) {
       localStorage.setItem("username", phoneNumber);
       localStorage.setItem("password", password);
       // 로그인 버튼 클릭시 보낼 데이터
-      const data = {
+      const logindata = {
         username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
       };
-      console.log(data); //data 양식 확인
+      console.log(logindata); //data 양식 확인
       // 백에 회원가입 데이터 보내는 부분 !!URL 추가해야 함.
       fetch("백엔드_URL", {
         method: "POST",
@@ -50,7 +50,7 @@ function LoginPage(props) {
           // headers는 HTTP 요청 헤더를 설정. 헤더는 클라이언트와 서버 간의 통신에서 추가적인 정보를 전달하기 위해 사용.
           "Content-Type": "application/json", // 본문에 포함된 데이터가 JSON형식으로 전달됨을 나타냄
         },
-        body: JSON.stringify(data), // 보낼 데이터 json으로 변형
+        body: JSON.stringify(logindata), // 보낼 데이터 json으로 변형
         mode: "cors", // 보안 때문에 붙이기!!
       })
         //로그인 정보 확인 로직 필요
@@ -65,9 +65,12 @@ function LoginPage(props) {
           }
         })
         .then((data) => {
+          if (!data.token || !data.token.access) {
+            throw new Error("로그인에 실패하셨습니다.");
+          }
           localStorage.setItem("data", JSON.stringify(data));
           alert("로그인에 성공하셨습니다.");
-          navigate("/plant1");
+          navigate("/home");
         })
         .catch((error) => {
           console.error(error);

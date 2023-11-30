@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AccountNav from "../components/AccountNav";
-import styles from "./Signupstep2.module.css";
+import styles from "./Signupstep2Page.module.css";
 import AvatarList from "../components/AvatarList";
 import SignupBtn from "../components/SignupBtn";
 import { useNavigate } from "react-router-dom";

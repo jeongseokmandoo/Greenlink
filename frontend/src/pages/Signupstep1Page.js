@@ -41,7 +41,7 @@ function Signupstep1Page(props) {
   return (
     <div>
       <AccountNav text1="계정만들기" text2="로그인" link1="/api/login/" />
-      <div style={{ marginTop: "10vh" }}>
+      <div>
         <Input2
           type="text"
           value={korean_name}
