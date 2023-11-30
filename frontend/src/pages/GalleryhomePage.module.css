@@ -1,6 +1,6 @@
 .box {
   width: 100vw;
-  margin-left: 3vw;
+  margin-left: 7vw;
   margin-right: 10vw;
   display: flex;
   flex-direction: row;
@@ -9,7 +9,7 @@
 }
 
 .text {
-  margin-left: 3vw;
+  margin-left: 7vw;
   font-size: calc(1vh + 1.5vw);
   color: rgba(0, 0, 0, 0.5);
   margin-bottom: 1vh;

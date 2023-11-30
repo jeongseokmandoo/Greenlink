@@ -4,14 +4,14 @@ import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
 import x_icon from "../assets/X_Icon.png";
 import NotifiBar from "../components/NotifiBar";
-import "./Setting.css";
+import "./SettingPage.css";
 import { useNavigate } from "react-router-dom";
 import PersonalsetBtn from "../components/PersonalsetBtn";
 
 function SettingPage(props) {
-  const navigate = useNavigate("/personal");
+  const navigate = useNavigate("/security");
   const personallock = () => {
-    navigate("/personal");
+    navigate("/security");
   };
 
   return (

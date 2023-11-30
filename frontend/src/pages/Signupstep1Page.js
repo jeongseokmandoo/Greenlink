@@ -4,18 +4,18 @@ import { Input2 } from "../components/AccountInput";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Page2(props) {
+function Signupstep1Page(props) {
   const [korean_name, setKorean_name] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const navigate = useNavigate();
 
   const storelocalP2 = () => {
     // input 양식 틀릴 경우
-    if (!korean_name || !phoneNumber || !password || !passwordConfirm) {
+    if (!korean_name || !username || !password || !passwordConfirm) {
       alert("모든 값을 입력해주세요.");
-    } else if (phoneNumber.length !== 11 || !phoneNumber.startsWith("010")) {
+    } else if (username.length !== 11 || !username.startsWith("010")) {
       alert("전화번호를 올바른 형식으로 입력해주세요.");
     } else if (password.length < 8 || password.length > 12) {
       alert("비밀번호는 8자 이상, 12자 이하여야 합니다.");
@@ -32,15 +32,15 @@ function Page2(props) {
     else {
       // 가입하기 버튼 클릭시 실행, 입력된 데이터를 로컬 스토리지에 저장
       localStorage.setItem("korean_name", korean_name);
-      localStorage.setItem("username", phoneNumber);
+      localStorage.setItem("username", username);
       localStorage.setItem("password", password);
-      navigate("/3");
+      navigate("/signupstep2");
     }
   };
 
   return (
     <div>
-      <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정만들기" text2="로그인" link1="/api/login/" />
       <div style={{ marginTop: "10vh" }}>
         <Input2
           type="text"
@@ -50,8 +50,8 @@ function Page2(props) {
         />
         <Input2
           type="text"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="전화번호(010XXXXXXXX)"
         />
         <Input2
@@ -72,4 +72,4 @@ function Page2(props) {
   );
 }
 
-export default Page2;
+export default Signupstep1Page;

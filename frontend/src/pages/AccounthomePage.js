@@ -10,9 +10,9 @@ import Profileimg2 from "../assets/Setting_Icon.png";
 import Profileimg3 from "../assets/Gallery_Icon.png";
 import Profileimg4 from "../assets/Home_Icon.png";
 import { useState } from "react";
-import styles from "./GroupPage1.module.css";
+import styles from "./AccounthomePage.module.css";
 
-function GroupPage1() {
+function Accounthome() {
   const [isInvited, setisInvited] = useState(false);
   const handleInviteFamily = () => {
     setisInvited(!isInvited);
@@ -20,7 +20,6 @@ function GroupPage1() {
 
   return (
     <div>
-      <h1>group1</h1>
       <TopNav
         text="우리 가족"
         link1="undefined"
@@ -35,7 +34,7 @@ function GroupPage1() {
           peoplename="이윤금"
           nickname="이 집 최고 권력자"
         />
-        <Btn2 text="내 프로필 수정" link="/group2" />
+        <Btn2 text="내 프로필 수정" link="/accountmodify" />
         <div className={styles.graybox}></div>
         <h4>연결된 가족</h4>
         <AccountBox
@@ -65,4 +64,4 @@ function GroupPage1() {
   );
 }
 
-export default GroupPage1;
+export default Accounthome;

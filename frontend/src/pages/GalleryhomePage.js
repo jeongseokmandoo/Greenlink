@@ -9,9 +9,9 @@ import GalleryPic2 from "../assets/GalleryPic2.png";
 import GalleryPic3 from "../assets/GalleryPic3.png";
 import GalleryPic4 from "../assets/GalleryPic4.png";
 import GalleryPic5 from "../assets/GalleryPic5.png";
-import styles from "./GalleryPage1.module.css";
+import styles from "./GalleryhomePage.module.css";
 
-function GalleryPage1(props) {
+function GalleryhomePage(props) {
   return (
     <div>
       <TopNav text="퉁퉁이 사진" icon1={no_icon} icon2={no_icon} />
@@ -29,10 +29,15 @@ function GalleryPage1(props) {
       <div className={styles.box}>
         <GalleryPic img={GalleryPic5} />
       </div>
-      <Btn text="사진 올리기" link="/gallery2" />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Btn text="사진 올리기" link="/gallerydetail" />
       <MainNav />
     </div>
   );
 }
 
-export default GalleryPage1;
+export default GalleryhomePage;

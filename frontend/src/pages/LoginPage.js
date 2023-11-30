@@ -12,7 +12,7 @@ const to6 = {
   fontSize: "calc(1vh + 1.25vw)",
 };
 
-function Page5(props) {
+function LoginPage(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function Page5(props) {
       localStorage.setItem("password", password);
       // 로그인 버튼 클릭시 보낼 데이터
       const data = {
-        phoneNumber: localStorage.getItem("username"),
+        username: localStorage.getItem("username"),
         password: localStorage.getItem("password"),
       };
       console.log(data); //data 양식 확인
@@ -57,25 +57,29 @@ function Page5(props) {
         .then((response) => {
           //성공적으로 로그인할 때
           if (response.ok) {
-            alert("로그인에 성공하셨습니다.");
-            navigate("/plant1");
+            return response.json();
           }
           //로그인 실패했을 때
           else {
             throw new Error("데이터를 백엔드로 보내는데 실패했습니다.");
           }
         })
+        .then((data) => {
+          localStorage.setItem("data", JSON.stringify(data));
+          alert("로그인에 성공하셨습니다.");
+          navigate("/plant1");
+        })
         .catch((error) => {
           console.error(error);
           alert("죄송합니다. 로그인에 실패하셨습니다.");
-          navigate("/5");
+          navigate("/api/login");
         });
     }
   };
 
   return (
     <div>
-      <AccountNav text1="로그인" text2="가입하기" link1="/2" />
+      <AccountNav text1="로그인" text2="가입하기" link1="/signupstep1" />
       <div style={{ marginTop: "10vh" }}>
         <Input2
           type="text"
@@ -90,7 +94,7 @@ function Page5(props) {
           placeholder="비밀번호"
         />
       </div>
-      <Link to="/6" style={to6}>
+      <Link to="/api/resetpw" style={to6}>
         비밀번호를 잊어버리셨나요?
       </Link>
       <BigBtn onClick={login} text="로그인하기" />
@@ -98,4 +102,4 @@ function Page5(props) {
   );
 }
 
-export default Page5;
+export default LoginPage;
