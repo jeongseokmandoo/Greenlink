@@ -43,7 +43,7 @@ function SignupPage(props) {
       localStorage.setItem("nickname", nickname);
 
       //백에 보낼 data 정의
-      const data = {
+      const signupdata = {
         korean_name: localStorage.getItem("korean_name"),
         password: localStorage.getItem("password"),
         username: localStorage.getItem("username"),
@@ -51,7 +51,7 @@ function SignupPage(props) {
         flower_pot: localStorage.getItem("flower_pot"),
         nickname: localStorage.getItem("nickname"),
       };
-      console.log(data); // data 양식 확인
+      console.log(signupdata); // data 양식 확인
       // 백에 회원가입 데이터 보내는 부분 !!URL 추가해야 함.
       fetch("http://127.0.0.1:8000/api/signup/", {
         method: "POST",
@@ -59,7 +59,7 @@ function SignupPage(props) {
           // headers는 HTTP 요청 헤더를 설정. 헤더는 클라이언트와 서버 간의 통신에서 추가적인 정보를 전달하기 위해 사용.
           "Content-Type": "application/json", // 본문에 포함된 데이터가 JSON형식으로 전달됨을 나타냄
         },
-        body: JSON.stringify(data), // 보낼 데이터 json으로 변형
+        body: JSON.stringify(signupdata), // 보낼 데이터 json으로 변형
         mode: "cors", // 보안 때문에 붙이기!!
       })
         // 중복하는 전화번호 있을 때 회원가입 안되도록 하는 로직 추가 필요
@@ -70,6 +70,7 @@ function SignupPage(props) {
               if (data.token && data.token.access) {
                 alert(data.message); // 회원가입 성공
                 navigate("/api/login");
+                localStorage.setItem("data", data);
               } else {
                 throw new Error("회원가입에 실패하셨습니다."); //회원가입 실패
               }

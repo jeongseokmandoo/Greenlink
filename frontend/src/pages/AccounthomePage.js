@@ -34,7 +34,7 @@ function Accounthome() {
           peoplename="이윤금"
           nickname="이 집 최고 권력자"
         />
-        <Btn2 text="내 프로필 수정" link="/accountmodify" />
+        <Btn2 text="내 프로필 수정" link="/api/accountmodify" />
         <div className={styles.graybox}></div>
         <h4>연결된 가족</h4>
         <AccountBox

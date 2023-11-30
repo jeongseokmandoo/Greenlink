@@ -5,39 +5,19 @@ function AccountNav({ text1, text2, link1 }) {
   return (
     <div className={styles.nav}>
       <Link to="/" className={styles.link}>
+        {" "}
         <div
-          style={{
-            fontSize: "calc(1.25vh + 1.25vw)",
-            fontWeight: "bold",
-            color: "Red",
-          }}
+          style={{ fontSize: "45px", textDecoration: "none", color: "black" }}
         >
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❌&nbsp;&nbsp;&nbsp;
-          <br />
-          <br />
-        </div>
+          {" "}
+          ╳{" "}
+        </div>{" "}
       </Link>
-      <h2
-        style={{
-          fontSize: "calc(2vh + 2.5vw)",
-          fontWeight: "bold",
-          display: "flex",
-        }}
-      >
-        {text1}
-      </h2>
+      <div style={{ display: "flex", textAlign: "center" }}>
+        <h2 style={{ fontSize: "55px", fontWeight: "600" }}>{text1}</h2>
+      </div>
       <Link to={link1} className={styles.link}>
-        <div
-          style={{
-            fontSize: "calc(1.25vh + 1.25vw)",
-            color: "black",
-            fontWeight: "bold",
-          }}
-        >
-          {text2}
-          <br />
-          <br />
-        </div>
+        <div style={{ fontSize: "35px", color: "#000000" }}>{text2}</div>
       </Link>
     </div>
   );

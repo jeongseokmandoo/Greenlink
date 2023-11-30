@@ -7,7 +7,7 @@ import PlantImage from "../components/PlantImage";
 import { Link } from "react-router-dom";
 import BigBtn from "../components/BigBtn";
 
-function Home_modify(props) {
+function Homemodify(props) {
   const [plantName, setPlantName] = useState("");
   const [plantSort, setPlantSort] = useState("");
   const [plantDate, setPlantDate] = useState("");
@@ -52,4 +52,4 @@ function Home_modify(props) {
   );
 }
 
-export default Home_modify;
+export default Homemodify;

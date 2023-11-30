@@ -11,10 +11,12 @@ function SecurityPage(props) {
 
   const logout = () => {
     // 로컬스트리지에서 토큰 삭제
-    localStorage.removeItem("token");
+    let data = localStorage.getItem("data");
+    delete data.token;
+    localStorage.setItem("data", JSON.stringify(data));
+    alert("성공적으로 로그아웃 되었습니다.");
     navigate("/");
   };
-
   const deleteaccount = () => {
     fetch("백엔드_URL", {
       method: "DELETE",
@@ -25,7 +27,9 @@ function SecurityPage(props) {
       .then((response) => {
         //요청이 성공적으로 이루어졌다면,
         if (response.ok) {
-          localStorage.removeItem("token");
+          let data = JSON.parse(localStorage.getItem("data"));
+          delete data.token;
+          localStorage.removeItem("data");
           alert("계정이 성공적으로 삭제되었습니다.");
           navigate("/");
         } else {
