@@ -4,7 +4,7 @@ import styles from "./PersonalBtn.module.css";
 function PersonalsetBtn({ text, onClick }) {
   return (
     <>
-      <button onClick={onClick} className={styles.button}>
+      <button className={styles.button} onClick={onClick}>
         {text}
       </button>
     </>

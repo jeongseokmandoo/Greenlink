@@ -5,6 +5,7 @@ import AvatarList from "../components/AvatarList";
 import SignupBtn from "../components/SignupBtn";
 import { useNavigate } from "react-router-dom";
 
+
 const Avatar1 =
   "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar1.png";
 
@@ -82,7 +83,7 @@ function Signupstep2Page() {
           </div>
         )}
       </label>
-      <p style={ptag}>이미지를 클릭해서 선택해주세요!</p>
+      <p style={ptag}>이미지를 클릭해서 선택해주세요 !</p>
       {/* 아바타 선택 리스트 */}
       {fileListstyle && <AvatarList onClick={handleImageItemClick} />}
       <SignupBtn text="가입하기" onClick={storelocalP3} />

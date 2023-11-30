@@ -11,7 +11,8 @@ const ptag1 = {
   justifyContent: "center",
   fontSize: "calc(1.5vh + 1.25vw)",
   fontWeight: "bold",
-  marginTop: "10vh",
+  marginTop: "25vh",
+
   marginBottom: "2.5vh",
 };
 
@@ -26,6 +27,7 @@ function SignupPage(props) {
   const [plantnumber, setPlantnumber] = useState(""); //화분번호 state
   const navigate = useNavigate();
   const [nickname, setNickname] = useState("");
+
 
   // 가입하기 버튼 누르면 시행되는 함수
   const start = () => {
@@ -69,6 +71,7 @@ function SignupPage(props) {
             response.json().then((data) => {
               if (data.token && data.token.access) {
                 alert(data.message); // 회원가입 성공
+
                 navigate("/api/login");
               } else {
                 throw new Error("회원가입에 실패하셨습니다."); //회원가입 실패
@@ -82,7 +85,6 @@ function SignupPage(props) {
         })
         .catch((error) => {
           console.error(error);
-          alert("죄송합니다. 회원가입을 다시 해주세요.");
           navigate("/signupstep1");
         });
     }
@@ -97,9 +99,9 @@ function SignupPage(props) {
         type="text"
         value={plantnumber}
         onChange={(e) => setPlantnumber(e.target.value)}
-        placeholder="화분번호"
+        placeholder="화분 번호"
       />
-      <p style={ptag2}>아직 화분이 없어요.</p>
+      <p style={ptag2}>🪴 아직 화분이 없어요. 🪴</p>
       <BigBtn onClick={start} text="시작하기" />
     </div>
   );

@@ -4,7 +4,12 @@ import styles from "./SignupBtn.module.css";
 function SignupBtn({ text, onClick }) {
   return (
     <div>
-      <button className={styles.SignupBtn} onClick={onClick}>
+      <button
+        style={{ borderRadius: "50px", marginTop: "20vh" }}
+        className={styles.SignupBtn}
+        onClick={onClick}
+      >
+        {" "}
         {text}
       </button>
     </div>

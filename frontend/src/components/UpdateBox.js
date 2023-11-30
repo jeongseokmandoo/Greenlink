@@ -1,9 +1,9 @@
 import styles from "./UpdateBox.module.css";
 
-function UpdateBox({ title, type, value, onChange, placeholder }) {
+function UpdateBox({ className, title, type, value, onChange, placeholder }) {
   return (
-    <div>
-      <p>{title}</p>
+    <div className={className}>
+      <p className={styles.ptag}>{title}</p>
       <input
         className={styles.UpdateBox}
         type={type}

@@ -14,7 +14,6 @@ const textst = {
 
 function GallerydetailPage(props) {
   return (
-    <div>
       <TopNav text="퉁퉁이 사진" icon1={no_icon} icon2={no_icon} />
       <br />
       <br />
