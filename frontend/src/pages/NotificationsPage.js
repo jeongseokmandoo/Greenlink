@@ -5,6 +5,131 @@ import x_icon from "../assets/X_Icon.png";
 import MainNav from "../components/MainNav";
 import styles from "./NotificationsPage.module.css";
 
+const userInfo = {
+  user: {
+    id: 8,
+    username: "01024242424",
+    korean_name: "이보름보름",
+    profile_picture:
+      "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F47%2F63%2Fd1%2F4763d159c22b4256cfbb9c284613008f.jpg&type=sc960_832",
+    flower_pot: {
+      pot_number: 1234,
+      plant_name: "둘째매화",
+      start_date: "2023-11-29",
+      plant_type: "매화",
+      moisture_level: 90,
+    },
+    nickname: "해피캣",
+  },
+  message: "login success",
+  token: {
+    access:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyODEwOTY0LCJpYXQiOjE3MDEyNzQ5NjQsImp0aSI6ImVmOWU4NDJkZDdkMzQ2Njk5ODkzOWVlYzZjYmQ1ZDUyIiwidXNlcl9pZCI6OH0.zsSMFFhBioXLPuSmFlpZIyxRSfY1aji7VgcpHoDq-TE",
+  },
+};
+const accessToken = userInfo.token.access;
+
+const notifiInfo = {
+  message: "complete",
+  content: {
+    flower_pot: {
+      pot_number: 1234,
+      plant_name: "Tungtungi",
+      start_date: "2023-11-28",
+      plant_type: "Chrysanthemum",
+      moisture_level: 90,
+    },
+    notifications: [
+      {
+        id: 1,
+        message: "Welcome Kyungbin Park.",
+        created_at: "2023-11-29T13:59:45.989172Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 2,
+        message: "Welcome Kyungbin Park.",
+        created_at: "2023-11-29T15:07:40.225241Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 3,
+        message: "Please give me water!!",
+        created_at: "2023-11-29T15:50:35.300359Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 4,
+        message: "Please give me water!!",
+        created_at: "2023-11-29T15:52:50.258988Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 5,
+        message: "NEXT watered the plant!",
+        created_at: "2023-11-29T15:53:05.981619Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 6,
+        message: "Please give me water!!",
+        created_at: "2023-11-29T15:53:27.988244Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 7,
+        message: "NEXT watered the plant!",
+        created_at: "2023-11-29T15:53:34.853738Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 8,
+        message: "NEXT watered the plant!",
+        created_at: "2023-11-29T15:53:37.258004Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 9,
+        message: "Welcome Boreum Lee.",
+        created_at: "2023-11-29T15:56:11.642586Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 10,
+        message: "Welcome Boreum Lee.",
+        created_at: "2023-11-29T16:08:57.090903Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 11,
+        message: "Welcome Boreum Boreum Lee.",
+        created_at: "2023-11-29T16:09:08.107531Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 12,
+        message: "Welcome Sojeong Park.",
+        created_at: "2023-11-29T16:09:18.632585Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 13,
+        message: "Park So-jeong So-jeong has left the group.",
+        created_at: "2023-11-29T16:16:47.256471Z",
+        flower_pot: 1234,
+      },
+      {
+        id: 14,
+        message: "Welcome Boreum Boreum Lee.",
+        created_at: "2023-11-29T16:21:17.471356Z",
+        flower_pot: 1234,
+      },
+    ],
+  },
+};
+
+const notifications = notifiInfo.content.notifications;
+
 export function NotifiText({ className, message = "알림 내용 들어감요" }) {
   return <div className={className}>{message}</div>;
 }
@@ -45,7 +170,7 @@ function NotifiBox({ item }) {
 function NotifiList({ items }) {
   return (
     <div className={styles.notiilist}>
-      {items.map((item) => {
+      {items.reverse().map((item) => {
         return <NotifiBox item={item} />;
       })}
     </div>
@@ -53,32 +178,37 @@ function NotifiList({ items }) {
 }
 
 function Notifications() {
-  const [items, setItems] = useState([]); // 초기값을 빈 배열로 설정
+  // const [notifications, setNotifications] = useState(null);
 
-  useEffect(() => {
-    fetch("data/notifi.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredData = data.filter((item) => item.pot === 1);
-        setItems(filteredData);
-      })
-      .catch((error) => console.error(error));
-  }, []); // 빈 의존성 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행
+  // fetch("http://127.0.0.1:8000/api/notifications/", {
+  //   method: "GET",
+  //   headers: {
+  //     Authorization: `Bearer ${accessToken}`,
+  //   },
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     setNotifications(data);
+  //     // 여기에서 data를 이용한 추가적인 작업을 수행합니다.
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error:", error);
+  //   });
 
   return (
     <div>
       <TopNav
         text="알림"
         link1="/setting"
-        link2="/home"
+        link2="/plant1"
         icon1={setting_icon}
         icon2={x_icon}
       />
-      <NotifiList items={items} />
+      <NotifiList items={notifications} />
 
       <MainNav />
     </div>
   );
 }
 
-export default Notifications;
+export default Notification;

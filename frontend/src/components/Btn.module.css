@@ -11,4 +11,5 @@
   justify-content: center;
   font-size: calc(1.25vw + 1.25vh);
   font-weight: bold;
+  border-radius: 50px;
 }

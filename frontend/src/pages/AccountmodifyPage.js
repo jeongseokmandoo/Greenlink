@@ -14,7 +14,7 @@ function Accountmodify(props) {
   const [fileListstyle, setFileListstyle] = useState(false); // 선택할 이미지 리스트 처음에 display: none으로
   const [humanName, sethumanName] = useState("");
   const [mynickname, setMynickname] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate("");
 
   const ptag = {
     display: "flex",

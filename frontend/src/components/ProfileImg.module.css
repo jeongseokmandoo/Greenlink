@@ -2,22 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: auto;
   background-color: #e7f2ed;
   border-radius: 50%;
   width: 50vw; /* 화면 너비의 50%만큼 이미지 크기를 설정합니다. */
   height: auto; /* 이미지의 원래 비율을 유지합니다. */
-  border-radius: 50%; /* 이미지를 원형으로 만듭니다. */
+  /* overflow: hidden; */
 }
 
 .profileImage2 {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 10vw;
-  height: 10vw;
+  margin-top: 3.5vw;
+  margin-left: 10vw;
+  width: 15vw;
+  height: 15vw;
   background-color: #e7f2ed;
   border-radius: 50%;
 }

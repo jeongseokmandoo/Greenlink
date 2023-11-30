@@ -2,7 +2,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 // import "./PlantImage.css";
-import rabit1 from "../assets/rabit1.png";
+import pot from "../assets/pot.png";
 
 const style_home = {
   width: "69vw",
@@ -10,8 +10,8 @@ const style_home = {
 };
 
 const style_account = {
-  width: "30vw",
-  height: "30vw",
+  width: "40vw",
+  height: "40vw",
 };
 
 function PlantImage({ className }) {
@@ -26,7 +26,7 @@ function PlantImage({ className }) {
 
   return (
     <div style={style} className={className}>
-      <img src={rabit1} alt="Profile" />
+      <img src={pot} alt="Profile" />
     </div>
   );
 }

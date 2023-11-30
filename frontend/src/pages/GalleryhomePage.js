@@ -40,4 +40,6 @@ function GalleryhomePage(props) {
   );
 }
 
+
 export default GalleryhomePage;
+

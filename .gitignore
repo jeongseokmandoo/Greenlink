@@ -21,3 +21,11 @@ frontend/.pnp.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# backend
+.vscode
+migrations
+db.sqlite3
+__pycache__
+
+.DS_Store

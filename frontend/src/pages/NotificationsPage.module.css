@@ -13,6 +13,7 @@
   background-color: #e7f2ed;
   width: 3vw;
   height: 10vh;
+  border-radius: 5px;
 }
 
 .notifibox .content {

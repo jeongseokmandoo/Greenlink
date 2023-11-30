@@ -1,9 +1,8 @@
 .img {
-  margin-top: 5vh;
+  margin-top: 3vh;
   padding-left: 25vw;
   padding-right: 25vw;
   width: 50vw;
-  height: 20vh;
 }
 
 .imgPlaceholder {
@@ -11,4 +10,8 @@
   padding-right: 25vw;
   width: 50vw;
   height: 20vh;
+}
+.SignupBtn {
+  border-radius: 50px;
+  margin-top: 20vh;
 }
