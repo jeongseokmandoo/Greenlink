@@ -1,21 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
-import Page3 from "./pages/Page3";
-import Page4 from "./pages/Page4";
-import Page5 from "./pages/Page5";
-import Page6 from "./pages/Page6";
-import GalleryPage1 from "./pages/GalleryPage1";
-import GroupPage1 from "./pages/GroupPage1";
-import PlantPage1 from "./pages/PlantPage1";
-import NotifiPage from "./pages/NotifiPage";
+import LogoPage from "./pages/LogoPage";
+import Signupstep1Page from "./pages/Signupstep1Page";
+import Signupstep2Page from "./pages/Signupstep2Page";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import GalleryhomePage from "./pages/GalleryhomePage";
+import Accounthome from "./pages/AccounthomePage";
+import Home from "./pages/HomePage";
+import Notifications from "./pages/NotificationsPage";
 import SettingPage from "./pages/SettingPage";
-import PersonalPage from "./pages/PersonalPage";
-import PlantPage2 from "./pages/PlantPage2";
-import GalleryPage2 from "./pages/GalleryPage2";
-import GroupPage2 from "./pages/GroupPage2";
+import SecurityPage from "./pages/SecurityPage";
+import Homemodify from "./pages/HomemodifyPage";
+import GallerydetailPage from "./pages/GallerydetailPage";
+import Accountmodify from "./pages/AccountmodifyPage";
 import { useState } from "react";
-import PageLoginplease from "./pages/Pageloginplease";
+import PageLoginplease from "./pages/PageloginpleasePage";
 
 function Main() {
   const [token, setToken] = useState(true);
@@ -26,39 +25,37 @@ function Main() {
       <Routes>
         {!token ? (
           <>
-            <Route path="/" element={<Page1 />} />
-            <Route path="/2" element={<Page2 />} />
-            <Route path="/3" element={<Page3 />} />
-            <Route path="/4" element={<Page4 />} />
-            <Route path="/5" element={<Page5 />} />
-            <Route path="/6" element={<Page6 />} />
-            <Route path="/gallery1" element={<PageLoginplease />} />
-            <Route path="/gallery2" element={<PageLoginplease />} />
-            <Route path="/plant1" element={<PageLoginplease />} />
-            <Route path="/plant2" element={<PageLoginplease />} />
-            <Route path="/group1" element={<PageLoginplease />} />
-            <Route path="/group2" element={<PageLoginplease />} />
-            <Route path="/notification" element={<PageLoginplease />} />
+            <Route path="/" element={<LogoPage />} />
+            <Route path="/signupstep1" element={<Signupstep1Page />} />
+            <Route path="/signupstep2" element={<Signupstep2Page />} />
+            <Route path="/api/signup/" element={<SignupPage />} />
+            <Route path="/api/login/" element={<LoginPage />} />
+            <Route path="/galleryhome" element={<PageLoginplease />} />
+            <Route path="/gallerydetail" element={<PageLoginplease />} />
+            <Route path="/api/home" element={<PageLoginplease />} />
+            <Route path="/api/home_modify" element={<PageLoginplease />} />
+            <Route path="/api/accounthome" element={<PageLoginplease />} />
+            <Route path="/api/accountmodify" element={<PageLoginplease />} />
+            <Route path="/api/notifications" element={<PageLoginplease />} />
             <Route path="/setting" element={<PageLoginplease />} />
-            <Route path="/personal" element={<PageLoginplease />} />
+            <Route path="/security" element={<PageLoginplease />} />
           </>
         ) : (
           <>
-            <Route path="/" element={<Page1 />} />
-            <Route path="/2" element={<Page2 />} />
-            <Route path="/3" element={<Page3 />} />
-            <Route path="/4" element={<Page4 />} />
-            <Route path="/5" element={<Page5 />} />
-            <Route path="/6" element={<Page6 />} />
-            <Route path="/gallery1" element={<GalleryPage1 />} />
-            <Route path="/gallery2" element={<GalleryPage2 />} />
-            <Route path="/plant1" element={<PlantPage1 />} />
-            <Route path="/plant2" element={<PlantPage2 />} />
-            <Route path="/group1" element={<GroupPage1 />} />
-            <Route path="/group2" element={<GroupPage2 />} />
-            <Route path="/notification" element={<NotifiPage />} />
+            <Route path="/" element={<LogoPage />} />
+            <Route path="/signupstep1" element={<Signupstep1Page />} />
+            <Route path="/signupstep2" element={<Signupstep2Page />} />
+            <Route path="/api/signup/" element={<SignupPage />} />
+            <Route path="/api/login/" element={<LoginPage />} />
+            <Route path="/galleryhome" element={<GalleryhomePage />} />
+            <Route path="/gallerydetail" element={<GallerydetailPage />} />
+            <Route path="/api/home" element={<Home />} />
+            <Route path="/api/homemodify" element={<Homemodify />} />
+            <Route path="/api/accounthome" element={<Accounthome />} />
+            <Route path="/api/accountmodify" element={<Accountmodify />} />
+            <Route path="/api/notifications" element={<Notifications />} />
             <Route path="/setting" element={<SettingPage />} />
-            <Route path="/personal" element={<PersonalPage />} />
+            <Route path="/security" element={<SecurityPage />} />
           </>
         )}
       </Routes>

@@ -3,7 +3,7 @@ import TopNav from "../components/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
 import MainNav from "../components/MainNav";
-import styles from "./NotifiPage.module.css";
+import styles from "./NotificationsPage.module.css";
 
 export function NotifiText({ className, message = "알림 내용 들어감요" }) {
   return <div className={className}>{message}</div>;
@@ -52,7 +52,7 @@ function NotifiList({ items }) {
   );
 }
 
-function NotifiPage() {
+function Notifications() {
   const [items, setItems] = useState([]); // 초기값을 빈 배열로 설정
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function NotifiPage() {
       <TopNav
         text="알림"
         link1="/setting"
-        link2="/plant1"
+        link2="/home"
         icon1={setting_icon}
         icon2={x_icon}
       />
@@ -81,4 +81,4 @@ function NotifiPage() {
   );
 }
 
-export default NotifiPage;
+export default Notifications;

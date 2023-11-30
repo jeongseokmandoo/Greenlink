@@ -6,9 +6,8 @@ import UpdateBox from "../components/UpdateBox";
 import PlantImage from "../components/PlantImage";
 import { Link } from "react-router-dom";
 import BigBtn from "../components/BigBtn";
-import styles from "./PlantPage2.module.css";
 
-function PlantPage2(props) {
+function Home_modify(props) {
   const [plantName, setPlantName] = useState("");
   const [plantSort, setPlantSort] = useState("");
   const [plantDate, setPlantDate] = useState("");
@@ -17,11 +16,11 @@ function PlantPage2(props) {
 
   return (
     <div>
-      <Link to="/plant1">&lt; 돌아가기</Link>
-      <PlantImage className={styles.plantimage} level={3} />
+      <Link to="/home">&lt; 돌아가기</Link>
+      <PlantImage level={3} />
       <TopNav
         text={undefined}
-        link1="/notification"
+        link1="/notifications"
         link2="/setting"
         icon1={on_bell_icon}
         icon2={setting_icon}
@@ -53,4 +52,4 @@ function PlantPage2(props) {
   );
 }
 
-export default PlantPage2;
+export default Home_modify;

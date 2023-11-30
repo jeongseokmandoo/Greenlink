@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import Btn from "../components/Btn";
 
-function Page1(props) {
+function LogoPage(props) {
   return (
     <div>
       <img
@@ -17,10 +17,10 @@ function Page1(props) {
         }}
       />
 
-      <Btn text="가입하기" link="/2" />
-      <Btn text="로그인하기" link="/5" />
+      <Btn text="가입하기" link="/signupstep1" />
+      <Btn text="로그인하기" link="/api/login/" />
     </div>
   );
 }
 
-export default Page1;
+export default LogoPage;

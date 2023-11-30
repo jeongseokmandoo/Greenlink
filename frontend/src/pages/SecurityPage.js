@@ -2,16 +2,12 @@ import React from "react";
 import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
-import "./Setting.css";
+import "./SettingPage.css";
 import PersonalsetBtn from "../components/PersonalsetBtn";
 import { useNavigate } from "react-router-dom";
 
-function PersonalPage(props) {
+function SecurityPage(props) {
   const navigate = useNavigate();
-
-  const changepassword = () => {
-    navigate("/6");
-  };
 
   const logout = () => {
     // 로컬스트리지에서 토큰 삭제
@@ -53,7 +49,6 @@ function PersonalPage(props) {
         icon2={no_icon}
       />
       <div className="contents"></div>
-      <PersonalsetBtn text="비밀번호 변경하기" onClick={changepassword} />
       <PersonalsetBtn text="로그아웃" onClick={logout} />
       <PersonalsetBtn text="탈퇴하기" onClick={deleteaccount} />
       <MainNav />
@@ -61,4 +56,4 @@ function PersonalPage(props) {
   );
 }
 
-export default PersonalPage;
+export default SecurityPage;

@@ -1,21 +1,37 @@
 import React from "react";
 import AvatarIcon from "./AvatarIcon";
-import avatar1 from "../assets/avatar/avatar1.png";
-import avatar2 from "../assets/avatar/avatar2.png";
-import avatar3 from "../assets/avatar/avatar3.png";
-import avatar4 from "../assets/avatar/avatar4.png";
-import avatar5 from "../assets/avatar/avatar5.png";
-import avatar6 from "../assets/avatar/avatar6.png";
-import avatar7 from "../assets/avatar/avatar7.png";
-import avatar8 from "../assets/avatar/avatar8.png";
-import avatar9 from "../assets/avatar/avatar9.png";
-import avatar10 from "../assets/avatar/avatar10.png";
-import avatar11 from "../assets/avatar/avatar11.png";
-import avatar12 from "../assets/avatar/avatar12.png";
-import avatar13 from "../assets/avatar/avatar13.png";
-import avatar14 from "../assets/avatar/avatar14.png";
-import avatar15 from "../assets/avatar/avatar15.png";
 import styles from "./AvatarList.module.css";
+
+const avatar1 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar1.png";
+const avatar2 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar2.png";
+const avatar3 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar3.png";
+const avatar4 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar4.png";
+const avatar5 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar5.png";
+const avatar6 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar6.png";
+const avatar7 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar7.png";
+const avatar8 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar8.png";
+const avatar9 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar9.png";
+const avatar10 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar10.png";
+const avatar11 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar11.png";
+const avatar12 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar12.png";
+const avatar13 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar13.png";
+const avatar14 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar14.png";
+const avatar15 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar15.png";
 
 function AvatarList({ onClick }) {
   return (

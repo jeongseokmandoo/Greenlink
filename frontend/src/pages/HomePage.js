@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Btn2 from "../components/Btn2";
-import TopNav from "../components/TopNav";
+import Btn2 from "../components/Btn2.js";
+import TopNav from "../components/TopNav.js";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../components/MainNav.js";
-import styles from "./PlantPage1.module.css";
-import PlantImage from "../components/PlantImage";
-import HumidiBar from "../components/HumiBar";
-import { NotifiText } from "./NotifiPage.js";
+import styles from "./HomePage.module.css";
+import PlantImage from "../components/PlantImage.js";
+import HumidiBar from "../components/HumiBar.js";
+import { NotifiText } from "./NotificationsPage.js";
 
 function NotifiHomeBox({ className, item }) {
   function calculateTime(created_at) {
@@ -63,7 +63,7 @@ function NotifiHomeList({ className }) {
   );
 }
 
-function PlantPage1() {
+function Home() {
   // const [potData, setPotData] = useState({});
   // const [userData, setUserData] = useState({});
 
@@ -162,10 +162,10 @@ function PlantPage1() {
         </div>
       </div>
       <HumidiBar humidity={pot.moisture_level} />
-      <Btn2 text="식물 정보 수정" link="/plant2" />
+      <Btn2 text="식물 정보 수정" link="/homemodify" />
       <MainNav className="mainNav" />
     </div>
   );
 }
 
-export default PlantPage1;
+export default Home;
