@@ -122,4 +122,6 @@ function PlantPage2() {
   );
 }
 
+
 export default PlantPage2;
+

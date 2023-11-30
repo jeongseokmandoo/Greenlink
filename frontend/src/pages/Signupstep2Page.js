@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import AccountNav from "../components/AccountNav";
-import styles from "./Signupstep2Page.module.css";
-import Avatar1 from "../assets/avatar/avatar1.png";
+import styles from "./Signupstep2.module.css";
 import AvatarList from "../components/AvatarList";
 import SignupBtn from "../components/SignupBtn";
 import { useNavigate } from "react-router-dom";
+
+
+const Avatar1 =
+  "https://raw.githubusercontent.com/kimtaekyuni/superguni/afd0b138847b5d67948cb3bff9354ba66d2c151b/avatar1.png";
 
 function Signupstep2Page() {
   const [previewImage, setPreviewImage] = useState(null);
@@ -25,7 +28,22 @@ function Signupstep2Page() {
     } //프로필 선택했다면 로컬 스토리지에 데이터 저장 후 url 이동
     else {
       localStorage.setItem("profile_picture", previewImage);
-      navigate("/4");
+      console.log(previewImage);
+      /* imgurl 숫자로 바꾸는 부분 (신경 안써도 되는 부분)*/
+
+      // const imgurl = localStorage.getItem("profile_picture");
+      // const getAvatarNumber = (imgurl) => {
+      //   const match = imgurl.match(/avatar(\d)/);
+      //   if (match && match[1]) {
+      //     return Number(match[1]);
+      //   } else {
+      //     return null;
+      //   }
+      // };
+      // const avatarNumber = getAvatarNumber(imgurl);
+      // localStorage.setItem("profile_picture", avatarNumber);
+
+      navigate("/api/signup/");
     }
   };
 
@@ -41,7 +59,7 @@ function Signupstep2Page() {
 
   return (
     <div>
-      <AccountNav text1="계정 만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정만들기" text2="로그인" link1="/api/login/" />
       <label htmlFor="file-input">
         {previewImage ? (
           <div>

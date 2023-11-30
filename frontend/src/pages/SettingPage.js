@@ -40,7 +40,7 @@ const NotifiBar = () => {
 function SettingPage() {
   const navigate = useNavigate("/personal");
   const personallock = () => {
-    navigate("/personal");
+    navigate("/security");
   };
 
   return (

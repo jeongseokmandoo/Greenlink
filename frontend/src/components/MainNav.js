@@ -13,17 +13,17 @@ const icontest_style = {
 function MainNav(props) {
   return (
     <div className={styles.mainnav}>
-      <Link to="/gallery1">
+      <Link to="/galleryhome">
         <div>
           <img src={gallery_icon} alt="icon1" style={icontest_style} />
         </div>
       </Link>
-      <Link to="/plant1">
+      <Link to="/home">
         <div>
           <img src={home_icon} alt="icon2" style={icontest_style} />
         </div>
       </Link>
-      <Link to="/group1">
+      <Link to="/accounthome">
         <div>
           <img src={user_icon} alt="icon3" style={icontest_style} />
         </div>

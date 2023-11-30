@@ -10,15 +10,15 @@ function LogoPage(props) {
         alt="로고"
         style={{
           width: "80vw",
-          height: "40vh",
+          height: "45vh",
           marginLeft: "10vw",
           marginRight: "10vw",
           marginTop: "18vh",
         }}
       />
 
-      <Btn text="가입하기" link="/2" />
-      <Btn text="로그인하기" link="/5" />
+      <Btn text="가입하기" link="/signupstep1" />
+      <Btn text="로그인하기" link="/api/login/" />
     </div>
   );
 }

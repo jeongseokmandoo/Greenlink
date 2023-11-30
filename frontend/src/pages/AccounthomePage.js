@@ -1,11 +1,11 @@
 import React from "react";
+import Btn2 from "../components/Btn2";
 import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../components/MainNav";
 import AccountBox from "../components/AccountBox";
 import Profileimg1 from "../assets/on_Bell_Icon.png";
-
 import { useState } from "react";
 import styles from "./AccounthomePage.module.css";
 import Btn3 from "../components/Btn3";
@@ -102,7 +102,7 @@ function Accounthome() {
   //       console.error("Error:", error);
   //     });
   // }, []);
-
+  
   return (
     <div>
       <TopNav

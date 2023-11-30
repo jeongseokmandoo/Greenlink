@@ -53,6 +53,7 @@ function NotifiHomeBox({ className, item }) {
   );
 }
 
+
 function NotifiHomeList({ className, items }) {
   return (
     <div className={className}>
@@ -69,6 +70,7 @@ function NotifiHomeList({ className, items }) {
 function Home() {
   // const [potData, setPotData] = useState({});
   // const [userData, setUserData] = useState({});
+
   // const [plantInfo, setPlantInfo] = useState(null);
 
   // const potNumber = localStorage.getItem('plantId'); // localStorage에서 plantId 가져오기
@@ -212,6 +214,7 @@ function Home() {
       />
       <div className={styles.titlebox}>
         <div className={styles.title}>
+
           🌱 {plantName}와 함께한지 {calculateDays(startDate)}일째
         </div>
         <div className={styles.titleback}></div>
