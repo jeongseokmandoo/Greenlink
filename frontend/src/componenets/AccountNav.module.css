@@ -1,9 +1,0 @@
-.nav {
-  width: 100vw;
-  display: flex;
-  margin-top: 3vh;
-  font-size: calc(1vw + 1vh);
-  align-items: center;
-  justify-content: space-around;
-  text-decoration: none;
-}

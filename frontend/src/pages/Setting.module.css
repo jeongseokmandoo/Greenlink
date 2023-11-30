@@ -1,0 +1,16 @@
+/* Setting.module.css */
+.main {
+  width: 100vw;
+  height: auto;
+}
+
+.main .contents {
+  margin-top: 5vh; /* TopNav의 높이만큼 여백을 줍니다. */
+  margin-bottom: 5vh; /* MainNav의 높이만큼 여백을 줍니다. */
+}
+
+.main .contents .clickbox {
+  height: 5vh; /* TopNav의 높이만큼 여백을 줍니다. */
+  width: 100vh; /* MainNav의 높이만큼 여백을 줍니다. */
+  font-size: 2em;
+}

@@ -1,49 +1,73 @@
-import AccountNav from "../componenets/AccountNav";
-import Btn from "../componenets/Btn";
-import { Input1, Input2 } from "../componenets/AccountInput";
+import AccountNav from "../components/AccountNav";
+import SignupBtn from "../components/SignupBtn";
+import { Input2 } from "../components/AccountInput";
 import { useState } from "react";
-import BlueBtn from "../componenets/BlueBtn";
+import { useNavigate } from "react-router-dom";
 
 function Page2(props) {
+  const [korean_name, setKorean_name] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [vertificationCode, setvertificationCode] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const navigate = useNavigate();
 
-  const button1 = () => {};
-  const button2 = () => {};
+  const storelocalP2 = () => {
+    // input 양식 틀릴 경우
+    if (!korean_name || !phoneNumber || !password || !passwordConfirm) {
+      alert("모든 값을 입력해주세요.");
+    } else if (phoneNumber.length !== 11 || !phoneNumber.startsWith("010")) {
+      alert("전화번호를 올바른 형식으로 입력해주세요.");
+    } else if (password.length < 8 || password.length > 12) {
+      alert("비밀번호는 8자 이상, 12자 이하여야 합니다.");
+    } else if (
+      !/[!@#$%^&*(),.?":{}|<>]/.test(password) ||
+      !/[A-Z]/.test(password)
+    ) {
+      alert(
+        "비밀번호에 특수문자와 대문자가 최소 하나 이상 포함되어야 합니다. "
+      );
+    } else if (password !== passwordConfirm) {
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+    } //input 양식 적합할 경우
+    else {
+      // 가입하기 버튼 클릭시 실행, 입력된 데이터를 로컬 스토리지에 저장
+      localStorage.setItem("korean_name", korean_name);
+      localStorage.setItem("username", phoneNumber);
+      localStorage.setItem("password", password);
+      navigate("/3");
+    }
+  };
 
   return (
-    <div className="page2div">
-      <h1>page 2</h1>
+    <div>
       <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
-      <Input1
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        placeholder="전화번호"
-      />
-      <BlueBtn onClick={button1} text="전화번호 발송" />
-      <Input1
-        type="text"
-        value={vertificationCode}
-        onChange={(e) => setvertificationCode(e.target.value)}
-        placeholder="인증번호"
-      />
-      <BlueBtn onClick={button2} text="인증하기" />
-      <Input2
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="비밀번호"
-      />
-      <Input2
-        type="password"
-        value={passwordConfirm}
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        placeholder="비밀번호 확인"
-      />
-      <Btn text="가입하기" link="/3" />
+      <div style={{ marginTop: "20vh" }}>
+        <Input2
+          type="text"
+          value={korean_name}
+          onChange={(e) => setKorean_name(e.target.value)}
+          placeholder="성명"
+        />
+        <Input2
+          type="text"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="전화번호(010XXXXXXXX)"
+        />
+        <Input2
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="비밀번호"
+        />
+        <Input2
+          type="password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          placeholder="비밀번호 확인"
+        />
+      </div>
+      <SignupBtn text="가입하기" onClick={storelocalP2} />
     </div>
   );
 }
