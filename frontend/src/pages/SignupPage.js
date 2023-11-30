@@ -22,7 +22,7 @@ const ptag2 = {
   marginBottom: "2.5vh",
 };
 
-function Page4(props) {
+function SignupPage(props) {
   const [plantnumber, setPlantnumber] = useState(""); //화분번호 state
   const navigate = useNavigate();
 
@@ -98,4 +98,4 @@ function Page4(props) {
   );
 }
 
-export default Page4;
+export default SignupPage;

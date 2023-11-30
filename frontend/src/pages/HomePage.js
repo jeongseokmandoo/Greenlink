@@ -4,10 +4,10 @@ import TopNav from "../components/TopNav";
 import on_bell_icon from "../assets/on_Bell_Icon.png";
 import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../components/MainNav.js";
-import styles from "./PlantPage1.module.css";
+import styles from "./HomePage.module.css";
 import PlantImage from "../components/PlantImage";
 import HumidiBar from "../components/HumiBar";
-import { NotifiText } from "./NotifiPage.js";
+import { NotifiText } from "./NotificationsPage.js";
 
 function RefreshButton() {
   const refreshPage = () => {
@@ -66,7 +66,7 @@ function NotifiHomeList({ className, items }) {
   );
 }
 
-function PlantPage1() {
+function Home() {
   // const [potData, setPotData] = useState({});
   // const [userData, setUserData] = useState({});
   // const [plantInfo, setPlantInfo] = useState(null);
@@ -232,4 +232,4 @@ function PlantPage1() {
   );
 }
 
-export default PlantPage1;
+export default Home;

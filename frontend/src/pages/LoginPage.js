@@ -12,7 +12,7 @@ const to6 = {
   fontSize: "calc(1vh + 1.25vw)",
 };
 
-function Page5(props) {
+function LoginPage(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -101,4 +101,4 @@ function Page5(props) {
   );
 }
 
-export default Page5;
+export default LoginPage;

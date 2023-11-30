@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import BigBtn from "../components/BigBtn";
 import { ProfileImg } from "../components/ProfileImg";
 import Profileimg from "../assets/rabit1.png";
-import styles from "./GroupPage2.module.css";
+import styles from "./AccountmodifyPage.module.css";
 
-function GroupPage2(props) {
+function Accountmodify(props) {
   const [humanName, sethumanName] = useState("");
   const [myRole, setmyRole] = useState("");
 
@@ -46,4 +46,4 @@ function GroupPage2(props) {
   );
 }
 
-export default GroupPage2;
+export default Accountmodify;

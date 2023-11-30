@@ -9,7 +9,7 @@ import GalleryPic2 from "../assets/GalleryPic2.png";
 import GalleryPic3 from "../assets/GalleryPic3.png";
 import GalleryPic4 from "../assets/GalleryPic4.png";
 import GalleryPic5 from "../assets/GalleryPic5.png";
-import styles from "./GalleryPage1.module.css";
+import styles from "./GalleryHomePage.module.css";
 
 function GalleryPage1(props) {
   return (

@@ -3,7 +3,7 @@ import TopNav from "../components/TopNav";
 import setting_icon from "../assets/Setting_Icon.png";
 import x_icon from "../assets/X_Icon.png";
 import MainNav from "../components/MainNav";
-import styles from "./NotifiPage.module.css";
+import styles from "./NotificationsPage.module.css";
 
 const userInfo = {
   user: {
@@ -177,7 +177,7 @@ function NotifiList({ items }) {
   );
 }
 
-function NotifiPage() {
+function Notifications() {
   // const [notifications, setNotifications] = useState(null);
 
   // fetch("http://127.0.0.1:8000/api/notifications/", {

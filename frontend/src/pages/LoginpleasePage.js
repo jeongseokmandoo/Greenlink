@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function PageLoginplease(prop) {
+function Loginplease(prop) {
   return (
     <>
       <h1>로그인 후 이용해주세요.</h1>
@@ -10,4 +10,4 @@ function PageLoginplease(prop) {
   );
 }
 
-export default PageLoginplease;
+export default Loginplease;

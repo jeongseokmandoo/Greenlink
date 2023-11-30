@@ -6,7 +6,7 @@ import Btn from "../components/Btn";
 import GalleryPage2Pic from "../assets/GalleryPage2Pic.png";
 import GalleryPic from "../components/GalleryPic";
 
-function GalleryPage2(props) {
+function GallerydetailPage(props) {
   return (
     <div>
       <h1>gallery2</h1>
@@ -19,4 +19,4 @@ function GalleryPage2(props) {
   );
 }
 
-export default GalleryPage2;
+export default GallerydetailPage;

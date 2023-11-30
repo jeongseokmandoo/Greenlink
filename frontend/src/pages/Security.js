@@ -6,7 +6,7 @@ import styles from "./Setting.module.css";
 import PersonalsetBtn from "../components/PersonalsetBtn";
 import { useNavigate } from "react-router-dom";
 
-function PersonalPage(props) {
+function Security(props) {
   const navigate = useNavigate();
 
   const changepassword = () => {
@@ -62,4 +62,4 @@ function PersonalPage(props) {
   );
 }
 
-export default PersonalPage;
+export default Security;

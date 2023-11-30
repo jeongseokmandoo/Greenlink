@@ -4,7 +4,7 @@ import { Input2 } from "../components/AccountInput";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Page2(props) {
+function Signupstep1Page(props) {
   const [korean_name, setKorean_name] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -72,4 +72,4 @@ function Page2(props) {
   );
 }
 
-export default Page2;
+export default Signupstep1Page;

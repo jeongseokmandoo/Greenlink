@@ -5,14 +5,12 @@ import setting_icon from "../assets/Setting_Icon.png";
 import MainNav from "../components/MainNav";
 import AccountBox from "../components/AccountBox";
 import Profileimg1 from "../assets/on_Bell_Icon.png";
-import Profileimg2 from "../assets/Setting_Icon.png";
-import Profileimg3 from "../assets/Gallery_Icon.png";
-import Profileimg4 from "../assets/Home_Icon.png";
+
 import { useState } from "react";
-import styles from "./GroupPage1.module.css";
+import styles from "./AccounthomePage.module.css";
 import Btn3 from "../components/Btn3";
 
-function GroupPage1() {
+function Accounthome() {
   const [isInvited, setisInvited] = useState(false);
   // const [familyMembers, setFamilyMembers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -166,4 +164,4 @@ function GroupPage1() {
   );
 }
 
-export default GroupPage1;
+export default Accounthome;

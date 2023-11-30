@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import AccountNav from "../components/AccountNav";
-import styles from "./Page3.module.css";
+import styles from "./Signupstep2Page.module.css";
 import Avatar1 from "../assets/avatar/avatar1.png";
 import AvatarList from "../components/AvatarList";
 import SignupBtn from "../components/SignupBtn";
 import { useNavigate } from "react-router-dom";
 
-function Page3() {
+function Signupstep2Page() {
   const [previewImage, setPreviewImage] = useState(null);
   const [fileListstyle, setFileListstyle] = useState(false); // 선택할 이미지 리스트 처음에 display: none으로
   const navigate = useNavigate();
@@ -73,4 +73,4 @@ function Page3() {
   );
 }
 
-export default Page3;
+export default Signupstep2Page;

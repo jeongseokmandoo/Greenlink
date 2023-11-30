@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import Btn from "../components/Btn";
 
-function Page1(props) {
+function LogoPage(props) {
   return (
     <div>
       <img
@@ -23,4 +23,4 @@ function Page1(props) {
   );
 }
 
-export default Page1;
+export default LogoPage;
