@@ -7,17 +7,30 @@ import styles from "./Setting.module.css";
 import { useNavigate } from "react-router-dom";
 import PersonalsetBtn from "../components/PersonalsetBtn.js";
 
-const NotifiBar = ({ className = "" }) => {
+const NotifiBar = () => {
   const [notification, setNotification] = useState(true);
+  const [buttonStyle, setButtonStyle] = useState({});
 
   const handleNotification = () => {
     setNotification(!notification);
+    if (notification) {
+      setButtonStyle({
+        border: "4px double red",
+        color: "red",
+      });
+    } else {
+      setButtonStyle({});
+    }
   };
 
   return (
-    <div className={className}>
+    <div className={styles.clickbox}>
       알림
-      <button onClick={handleNotification}>
+      <button
+        className={styles.notifibtn}
+        style={buttonStyle}
+        onClick={handleNotification}
+      >
         {notification ? "알림 끄기" : "알림 켜기"}
       </button>
     </div>
@@ -33,6 +46,7 @@ function SettingPage() {
   return (
     <div className={styles.main}>
       <TopNav
+        className={styles.topNav}
         text="설정"
         link1={undefined}
         link2="/plant1"
@@ -41,7 +55,7 @@ function SettingPage() {
       />
       <div className={styles.contents}>
         <PersonalsetBtn text="개인/보안" onClick={personallock} />
-        <NotifiBar className={styles.clickbox} />
+        <NotifiBar />
       </div>
       <MainNav />
     </div>

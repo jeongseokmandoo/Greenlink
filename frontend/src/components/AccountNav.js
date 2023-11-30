@@ -6,9 +6,14 @@ function AccountNav({ text1, text2, link1 }) {
     <div className={styles.nav}>
       <Link to="/" className={styles.link}>
         {" "}
-        <div style={{ fontSize: "65px" }}> ↩️ </div>{" "}
+        <div
+          style={{ fontSize: "45px", textDecoration: "none", color: "black" }}
+        >
+          {" "}
+          ╳{" "}
+        </div>{" "}
       </Link>
-      <h2 style={{ fontSize: "60px", fontWeight: "bold" }}>{text1}</h2>
+      <h2 style={{ fontSize: "55px", fontWeight: "600" }}>{text1}</h2>
       <Link to={link1} className={styles.link}>
         <div style={{ fontSize: "35px", color: "#000000" }}>{text2}</div>
       </Link>

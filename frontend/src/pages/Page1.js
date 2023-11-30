@@ -10,7 +10,7 @@ function Page1(props) {
         alt="로고"
         style={{
           width: "80vw",
-          height: "45vh",
+          height: "40vh",
           marginLeft: "10vw",
           marginRight: "10vw",
           marginTop: "18vh",

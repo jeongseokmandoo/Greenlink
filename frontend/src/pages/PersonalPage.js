@@ -43,19 +43,20 @@ function PersonalPage(props) {
   };
 
   return (
-    <div className="setting">
+    <div className={styles.main}>
       <TopNav
-        className="topNav"
+        className={styles.topNav}
         text="개인/보안"
         link1={undefined}
         link2="/setting"
         icon1={no_icon}
         icon2={no_icon}
       />
-      <div className="contents"></div>
-      <PersonalsetBtn text="비밀번호 변경하기" onClick={changepassword} />
-      <PersonalsetBtn text="로그아웃" onClick={logout} />
-      <PersonalsetBtn text="탈퇴하기" onClick={deleteaccount} />
+      <div className={styles.contents}>
+        <PersonalsetBtn text="비밀번호 변경하기" onClick={changepassword} />
+        <PersonalsetBtn text="로그아웃" onClick={logout} />
+        <PersonalsetBtn text="탈퇴하기" onClick={deleteaccount} />
+      </div>
       <MainNav />
     </div>
   );

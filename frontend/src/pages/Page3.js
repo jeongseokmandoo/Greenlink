@@ -41,7 +41,7 @@ function Page3() {
 
   return (
     <div>
-      <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정 만들기" text2="로그인" link1="/5" />
       <label htmlFor="file-input">
         {previewImage ? (
           <div>
@@ -65,7 +65,7 @@ function Page3() {
           </div>
         )}
       </label>
-      <p style={ptag}>이미지를 클릭해서 선택해주세요!</p>
+      <p style={ptag}>이미지를 클릭해서 선택해주세요 !</p>
       {/* 아바타 선택 리스트 */}
       {fileListstyle && <AvatarList onClick={handleImageItemClick} />}
       <SignupBtn text="가입하기" onClick={storelocalP3} />

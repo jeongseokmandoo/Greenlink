@@ -91,7 +91,10 @@ function Page5(props) {
         />
       </div>
       <Link to="/6" style={to6}>
-        비밀번호를 잊어버리셨나요?
+        <div style={{ textDecoration: "none", color: "#517849" }}>
+          {" "}
+          🗝️&nbsp; 비밀번호를 잊어버리셨나요？
+        </div>
       </Link>
       <BigBtn onClick={login} text="로그인하기" />
     </div>

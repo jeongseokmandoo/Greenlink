@@ -83,16 +83,16 @@ function Page4(props) {
 
   return (
     <div>
-      <AccountNav text1="계정만들기" text2="로그인" link1="/5" />
+      <AccountNav text1="계정 만들기" text2="로그인" link1="/5" />
       <p style={ptag1}>화분 하단의 번호를 입력해주세요.</p>
       {/* plantnumber 작성 input */}
       <Input2
         type="text"
         value={plantnumber}
         onChange={(e) => setPlantnumber(e.target.value)}
-        placeholder="화분번호"
+        placeholder="화분 번호"
       />
-      <p style={ptag2}>아직 화분이 없어요.</p>
+      <p style={ptag2}>🪴 아직 화분이 없어요. 🪴</p>
       <BigBtn onClick={start} text="시작하기" />
     </div>
   );
