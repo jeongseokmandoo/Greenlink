@@ -2,7 +2,7 @@ import React from "react";
 import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
-import "./Setting.css";
+import styles from "./Setting.module.css";
 import PersonalsetBtn from "../components/PersonalsetBtn";
 import { useNavigate } from "react-router-dom";
 

@@ -32,7 +32,7 @@
 .main .notifihomelist {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  width: 80vw;
   height: 30vh;
   position: absolute;
   top: 13vh;
@@ -59,6 +59,10 @@
   box-shadow: 0.1px 7px 10px 0.5px rgb(174, 174, 174);
 }
 
+.notifihomebox:active {
+  transform: scale(1.03);
+}
+
 .time {
   font-size: 1.8em;
   margin-top: 1.5vw;
@@ -78,7 +82,7 @@
 
 .plantimage {
   position: absolute;
-  top: 42vh;
+  top: 40vh;
   left: 15.5vw;
   display: flex;
   justify-content: center;
@@ -92,16 +96,36 @@
 .plantimage img {
   position: absolute;
   bottom: 4.5vh;
-  width: 83vw; /* 화면 너비의 50%만큼 이미지 크기를 설정합니다. */
+  width: 65vw; /* 화면 너비의 50%만큼 이미지 크기를 설정합니다. */
   height: auto; /* 이미지의 원래 비율을 유지합니다. */
   border-radius: 50%; /* 이미지를 원형으로 만듭니다. */
+  animation: none;
+}
+
+.plantimage img:hover {
+  animation: wiggle 1.2s ease-in-out forwards;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-5deg);
+  }
+  33% {
+    transform: rotate(5deg);
+  }
+  66% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .potnamebox {
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 80vh;
+  top: 74vh;
   left: 40vw;
   width: 40vw;
 
@@ -118,4 +142,22 @@
   font-size: 2em;
   margin-left: 1vw;
   color: #3f5535;
+}
+
+.refresh {
+  position: absolute;
+  top: 78vh;
+  left: 33vw;
+  width: 34vw;
+  border-color: aqua;
+  background-color: #f5fbff;
+  padding: 10px; /* 내부 여백 추가 */
+  font-size: 2.5em; /* 글자 크기 조절 */
+  color: rgb(74, 213, 255); /* 글자 색상 조절 */
+  border-radius: 40px;
+  box-shadow: 0.1px 1px 10px 0.3px rgb(196, 196, 196);
+}
+
+.refresh:active {
+  transform: scale(1.05);
 }

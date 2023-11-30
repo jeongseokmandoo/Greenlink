@@ -1,37 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import TopNav from "../components/TopNav";
 import no_icon from "../assets/non_icon.png";
 import MainNav from "../components/MainNav";
 import x_icon from "../assets/X_Icon.png";
-import NotifiBar from "../components/NotifiBar";
-import "./Setting.css";
+import styles from "./Setting.module.css";
 import { useNavigate } from "react-router-dom";
-import PersonalsetBtn from "../components/PersonalsetBtn";
+import PersonalsetBtn from "../components/PersonalsetBtn.js";
 
-function SettingPage(props) {
+const NotifiBar = ({ className = "" }) => {
+  const [notification, setNotification] = useState(true);
+
+  const handleNotification = () => {
+    setNotification(!notification);
+  };
+
+  return (
+    <div className={className}>
+      알림
+      <button onClick={handleNotification}>
+        {notification ? "알림 끄기" : "알림 켜기"}
+      </button>
+    </div>
+  );
+};
+
+function SettingPage() {
   const navigate = useNavigate("/personal");
   const personallock = () => {
     navigate("/personal");
   };
 
   return (
-    <div className="main">
+    <div className={styles.main}>
       <TopNav
-        className="topNav"
         text="설정"
         link1={undefined}
-        link2="/"
+        link2="/plant1"
         icon1={no_icon}
         icon2={x_icon}
       />
-
-      <div className="contents">
+      <div className={styles.contents}>
         <PersonalsetBtn text="개인/보안" onClick={personallock} />
-        <NotifiBar className="clickbox" />
-        {/* <ChangePot className="clickbox" /> */}
+        <NotifiBar className={styles.clickbox} />
       </div>
-
-      <MainNav className="mainNav" />
+      <MainNav />
     </div>
   );
 }

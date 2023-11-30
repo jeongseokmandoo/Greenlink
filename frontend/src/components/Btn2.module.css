@@ -14,6 +14,10 @@
   box-shadow: 0.1px 5px 12px 0.5px rgb(174, 174, 174);
 }
 
+.btn2:active {
+  transform: scale(1.05);
+}
+
 .btn2link {
   text-decoration: none; /* 밑줄 제거 */
   color: #14c145; /* 텍스트 색상을 검정색으로 고정 */
@@ -24,5 +28,5 @@
 .btn2link:active,
 .btn2link:focus,
 .btn2link:hover {
-  color: inherit; /* 눌렀을 때 색상이 변하지 않도록 설정 */
+  color: i#14c145; /* 눌렀을 때 색상이 변하지 않도록 설정 */
 }
