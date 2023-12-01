@@ -172,14 +172,14 @@ class FlowerView(APIView):
         user = request.user
         flower_pot = user.flower_pot
 
-        serializer = FlowerPotSerializer(instance=flower_pot, data=request.data, partial=True)
+        serializer = FlowerPotSerializer(
+            instance=flower_pot, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
 
         else:
             return Response({"message": "Invalid credentials", 'serializer': serializer.data}, status=status.HTTP_400_BAD_REQUEST)
         return Response({'message': "complete", 'serializer': serializer.data}, status=status.HTTP_200_OK)
-
 
 
 class FamilyView(APIView):
@@ -199,7 +199,6 @@ class FamilyView(APIView):
         return Response({'family_members': serializer.data}, status=status.HTTP_200_OK)
 
 
-
 class NotificationView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
@@ -212,7 +211,8 @@ class NotificationView(APIView):
         content = dict()
 
         flower_serializer = FlowerPotSerializer(flower_pot)
-        notification_serializer = NotificationSerializer(notifications, many=True)
+        notification_serializer = NotificationSerializer(
+            notifications, many=True)
 
         content['flower_pot'] = flower_serializer.data
         content['notifications'] = notification_serializer.data

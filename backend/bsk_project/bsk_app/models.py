@@ -18,13 +18,12 @@ class FlowerPot(models.Model):
         return f"{self.plant_name} - Pot Number {self.pot_number}"
 
 
-
 class UserProfile(AbstractUser):
     korean_name = models.CharField(max_length=30, blank=True, null=True)
     profile_picture = models.CharField(max_length=300, null=True, blank=True)
     flower_pot = models.ForeignKey(
         FlowerPot, on_delete=models.SET_NULL, null=True, blank=True, related_name="users")
-    notifications_enabled = models.BooleanField(default=True)
+    # notifications_enabled = models.BooleanField(default=True)
     nickname = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
