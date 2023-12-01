@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Moisture Level</title>
+</head>
+
+<body>
+
+    <h2>Update Moisture Level for FlowerPot {{ flower_pot.pot_number }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="id_moisture_level">Moisture Level:</label>
+        {{ form.moisture_level }}
+        
+        {% if form.moisture_level.errors %}
+            <p style="color: red;">{{ form.moisture_level.errors.0 }}</p>
+        {% endif %}
+
+        <button type="submit">Update Moisture Level</button>
+    </form>
+
+</body>
+
+</html>
